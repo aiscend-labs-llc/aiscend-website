@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+    <style>
+      body { display: flex; justify-content: center; align-items: center; height: 100vh; background: #222; }
+      #anim { width: 600px; height: 400px; }
+    </style>
+  </head>
+  <body>
+    <div id="anim"></div>
+    <script>
+      var animation = lottie.loadAnimation({
+        container: document.getElementById('anim'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'floatingshapes.json'
+      });
+    </script>
+  </body>
+</html>

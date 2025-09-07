@@ -73,10 +73,9 @@ prism-ai/
 │  │   └─ Button.tsx
 │  ├─ sections/
 │  │   ├─ Hero.tsx
-│  │   ├─ Testimonials.tsx
+│  │   ├─ Impact.tsx
 │  │   ├─ Services.tsx
 │  │   ├─ About.tsx
-│  │   ├─ Booking.tsx
 │  │   └─ Contact.tsx
 │  ├─ data/
 │  │   └─ caseStudies.ts
@@ -99,24 +98,25 @@ prism-ai/
 ```js
 // tailwind.config.cjs
 module.exports = {
-  content: ['./index.html','./src/**/*.{tsx,ts}'],
+  content: ["./index.html", "./src/**/*.{tsx,ts}"],
   theme: {
     extend: {
-      fontFamily: { sans: ['Inter', 'ui-sans-serif'] },
+      fontFamily: { sans: ["Inter", "ui-sans-serif"] },
       colors: {
-        neon: '#FF6B00',
+        neon: "#FF6B00",
         gray: {
-          900: '#0F0F0F',
-          700: '#1F1F1F',
-          500: '#3F3F3F'
-        }
+          900: "#0F0F0F",
+          700: "#1F1F1F",
+          500: "#3F3F3F",
+        },
       },
       backgroundImage: {
-        'hot-grad': 'linear-gradient(90deg,#FF6B00 0%,#FF3366 45%,#FFC300 100%)'
-      }
-    }
+        "hot-grad":
+          "linear-gradient(90deg,#FF6B00 0%,#FF3366 45%,#FFC300 100%)",
+      },
+    },
   },
-  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')]
+  plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],
 };
 ```
 
@@ -125,24 +125,28 @@ module.exports = {
 ## 6. Netlify Function – `sendContact.ts`
 
 ```ts
-import type { Handler } from '@netlify/functions';
-import Resend from 'resend';
-import Airtable from 'airtable';
+import type { Handler } from "@netlify/functions";
+import Resend from "resend";
+import Airtable from "airtable";
 
 const resend = new Resend(process.env.RESEND_KEY!);
-const base = new Airtable({ apiKey: process.env.AIRTABLE_TOKEN }).base(process.env.AIRTABLE_BASE!);
+const base = new Airtable({ apiKey: process.env.AIRTABLE_TOKEN }).base(
+  process.env.AIRTABLE_BASE!
+);
 
 export const handler: Handler = async (event) => {
-  const { name, email, message } = JSON.parse(event.body ?? '{}');
+  const { name, email, message } = JSON.parse(event.body ?? "{}");
 
   await resend.emails.send({
-    from: 'hello@prismtech.ai',
-    to: 'hello@prismtech.ai',
+    from: "hello@prismtech.ai",
+    to: "hello@prismtech.ai",
     subject: `New inquiry from ${name}`,
-    html: `<p>${message}</p><p>Reply ➜ ${email}</p>`
+    html: `<p>${message}</p><p>Reply ➜ ${email}</p>`,
   });
 
-  await base.table('Contacts').create({ Name: name, Email: email, Message: message });
+  await base
+    .table("Contacts")
+    .create({ Name: name, Email: email, Message: message });
 
   return { statusCode: 200, body: JSON.stringify({ ok: true }) };
 };
@@ -228,7 +232,12 @@ Once verified, outbound mail is signed.
 ## 11. Plausible Analytics Embed
 
 ```html
-<script async defer data-domain="prismtech.ai" src="https://plausible.io/js/plausible.js"></script>
+<script
+  async
+  defer
+  data-domain="prismtech.ai"
+  src="https://plausible.io/js/plausible.js"
+></script>
 ```
 
 No cookies ⇒ no banner.
@@ -248,9 +257,12 @@ No cookies ⇒ no banner.
 ### Booking Section
 
 ```tsx
-import { InlineWidget } from '@calcom/embed-react';
+import { InlineWidget } from "@calcom/embed-react";
 
-<InlineWidget url="https://cal.com/your-username/30min" styles={{ height: '700px', background: 'transparent' }} />
+<InlineWidget
+  url="https://cal.com/your-username/30min"
+  styles={{ height: "700px", background: "transparent" }}
+/>;
 ```
 
 ---
@@ -265,11 +277,11 @@ lottie:
   lib: lottie-react
   action: npm i lottie-react
 spam_protection:
-  hcaptcha: '@hcaptcha/react'
+  hcaptcha: "@hcaptcha/react"
   verify_in: netlify function
 self_host_cal:
   deploy: docker on fly.io
-  change_embed_url: 'https://book.prismtech.ai/...'
+  change_embed_url: "https://book.prismtech.ai/..."
 ```
 
 ---
