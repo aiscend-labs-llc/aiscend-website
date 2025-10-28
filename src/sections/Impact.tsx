@@ -1,8 +1,11 @@
+import { Badge } from "@/components/ui/badge"
+
 function Impact() {
   return (
     <section id="impact" className="section--dark py-24 bg-[#333333] text-[#F8F8FF]" aria-label="Impact">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto">
+          <Badge variant="outline" className="mb-4 border-[#F8F8FF] text-[#F8F8FF]">Our Results</Badge>
           <h2 className="text-3xl font-semibold tracking-tight text-[#F8F8FF]">Impact Snapshot</h2>
           <p className="mt-3 text-[#F8F8FF]">Practical wins across launches, support deflection, and team productivity.</p>
         </div>

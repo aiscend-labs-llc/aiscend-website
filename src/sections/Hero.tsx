@@ -1,5 +1,7 @@
 import { DotPattern } from "@/components/magicui/dot-pattern";
 import { Typewriter } from "@/components/ui/typewriter-text";
+import { Button } from "@/components/ui/button";
+import { scrollToSection } from '@/lib/scroll';
 
 function Hero() {
   return (
@@ -10,7 +12,12 @@ function Hero() {
             <h1 className="mt-3 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] font-saira">Business Has Changed</h1>
             <p className="mt-5 text-lg sm:text-xl text-gray-600">Prism is a NY-based tech consultancy specializing in workflow automation, AI enablement, and custom software development for small to medium enterprises.</p>
             <div className="mt-8 flex items-center gap-3">
-              <a href="#contact" className="inline-flex items-center justify-center rounded-md bg-[--color-brand] text-white px-5 py-3 text-sm font-medium hover:opacity-90">Book a free consult</a>
+              <Button onClick={() => scrollToSection('contact')} className="bg-[#333] text-[#F8F8FF] hover:bg-[#333]/90 font-chakra">
+                Book a Free Consultation
+              </Button>
+              <Button onClick={() => scrollToSection('services')} variant="outline" className="border-[#333] text-[#333] hover:bg-[#333] hover:text-[#F8F8FF] font-chakra">
+                Learn More
+              </Button>
             </div>
           </div>
 

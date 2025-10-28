@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import Cal, { getCalApi } from '@calcom/embed-react'
+import { Badge } from "@/components/ui/badge"
 
 function Contact() {
   const lottieContainerRef = useRef<HTMLDivElement | null>(null)
@@ -56,6 +57,7 @@ function Contact() {
       />
       <div className="relative z-10 container max-w-3xl text-[#F8F8FF]">
         <div className="text-center">
+          <Badge variant="outline" className="mb-4 border-[#F8F8FF] text-[#F8F8FF]">Get In Touch</Badge>
           <h2 className="text-3xl font-semibold tracking-tight !text-[#F8F8FF]">Let's Scale Together</h2>
           <p className="mt-3 text-[#F8F8FF]">Tell us about your project. We’ll reply within 1 business day.</p>
         </div>
