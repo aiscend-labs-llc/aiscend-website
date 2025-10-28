@@ -13,7 +13,7 @@ function Header() {
           <a href="#contact" className="text-gray-600 hover:text-[#484848]">Contact</a>
         </nav>
         <div className="flex items-center gap-3">
-          <a href="#contact" className="hidden sm:inline-flex items-center justify-center rounded-md bg-[--color-brand] text-white px-4 py-2 text-sm font-medium hover:opacity-90">Get started</a>
+          <a href="#contact" className="hidden sm:inline-flex items-center justify-center rounded-md bg-[#333333] text-white px-4 py-2 text-sm font-medium hover:opacity-90">Get started</a>
           <button type="button" aria-label="Menu" aria-expanded={open} onClick={() => setOpen(v => !v)} className="md:hidden inline-flex items-center justify-center rounded-md border px-3 py-2 text-sm">
             {open ? 'Close' : 'Menu'}
           </button>

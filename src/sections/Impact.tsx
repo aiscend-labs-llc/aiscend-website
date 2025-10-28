@@ -1,6 +1,6 @@
 function Impact() {
   return (
-    <section id="impact" className="py-24 bg-[#333333] text-[#F8F8FF]" aria-label="Impact">
+    <section id="impact" className="section--dark py-24 bg-[#333333] text-[#F8F8FF]" aria-label="Impact">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl font-semibold tracking-tight text-[#F8F8FF]">Impact Snapshot</h2>
