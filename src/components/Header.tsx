@@ -43,7 +43,7 @@ function Header() {
   return (
     <header className="sticky top-0 z-50 bg-[#F8F8FF]/80 backdrop-blur border-b font-chakra">
       <div className="container h-16 flex items-center justify-between">
-        <button onClick={() => scrollToSection('hero')} className="text-2xl font-semibold font-brand">prism</button>
+        <button onClick={() => scrollToSection('hero')} className="text-3xl font-semibold font-brand cursor-pointer">prism</button>
         <NavigationMenu className="hidden md:flex" viewport={false}>
           <NavigationMenuList>
             <NavigationMenuItem>
@@ -59,7 +59,7 @@ function Header() {
                     <NavigationMenuLink asChild>
                       <button
                         onClick={() => scrollToSection('services')}
-                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground w-full text-left"
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground w-full text-left cursor-pointer"
                       >
                         <div className="text-sm font-semibold leading-none">All Services</div>
                         <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
@@ -75,7 +75,7 @@ function Header() {
                           <NavigationMenuLink asChild>
                             <button
                               onClick={() => scrollToSection('services')}
-                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground w-full text-left"
+                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground w-full text-left cursor-pointer"
                             >
                               <div className="text-sm font-medium leading-none">{service.title}</div>
                               <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
@@ -92,7 +92,7 @@ function Header() {
                           <NavigationMenuLink asChild>
                             <button
                               onClick={() => scrollToSection('services')}
-                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground w-full text-left"
+                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground w-full text-left cursor-pointer"
                             >
                               <div className="text-sm font-medium leading-none">{service.title}</div>
                               <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">

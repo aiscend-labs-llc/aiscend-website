@@ -1,31 +1,23 @@
 import { Badge } from "@/components/ui/badge"
+import { AIAdoptionChart } from "@/components/AIAdoptionChart"
 
 function Impact() {
   return (
-    <section id="impact" className="section--dark py-24 bg-[#333333] text-[#F8F8FF]" aria-label="Impact">
+    <section id="impact" className="section--dark py-24 bg-[#333333]" aria-label="Impact">
       <div className="container">
-        <div className="text-center max-w-3xl mx-auto">
-          <Badge variant="outline" className="mb-4 border-[#F8F8FF] text-[#F8F8FF]">Our Results</Badge>
-          <h2 className="text-3xl font-semibold tracking-tight text-[#F8F8FF]">Impact Snapshot</h2>
-          <p className="mt-3 text-[#F8F8FF]">Practical wins across launches, support deflection, and team productivity.</p>
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <Badge variant="outline" className="mb-4 border-[#F8F8FF] text-[#F8F8FF]">Industry Insight</Badge>
+          <h2 className="text-4xl font-bold tracking-tight text-[#F8F8FF] font-saira">The AI Revolution is Here</h2>
+          <p className="mt-4 text-lg text-[#F8F8FF]">
+            Don't get left behind.
+          </p>
+          <p className="mt-2 text-lg text-[#F8F8FF]">
+            Federal Reserve data shows rapid growth in AI adoption among businesses.
+          </p>
         </div>
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="rounded-lg border p-6 text-center">
-            <div className="text-3xl font-bold">123%</div>
-            <div className="mt-1 text-sm text-[#F8F8FF]">Lift in qualified leads</div>
-          </div>
-          <div className="rounded-lg border p-6 text-center">
-            <div className="text-3xl font-bold">48k</div>
-            <div className="mt-1 text-sm text-[#F8F8FF]">Automations run monthly</div>
-          </div>
-          <div className="rounded-lg border p-6 text-center">
-            <div className="text-3xl font-bold">7.4x</div>
-            <div className="mt-1 text-sm text-[#F8F8FF]">Faster prototyping</div>
-          </div>
-          <div className="rounded-lg border p-6 text-center">
-            <div className="text-3xl font-bold">99.9%</div>
-            <div className="mt-1 text-sm text-[#F8F8FF]">Uptime for critical flows</div>
-          </div>
+
+        <div className="max-w-6xl mx-auto">
+          <AIAdoptionChart />
         </div>
       </div>
     </section>
