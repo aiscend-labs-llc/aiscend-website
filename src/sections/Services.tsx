@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { Badge } from "@/components/ui/badge"
 import { motion, AnimatePresence } from "framer-motion"
 import { Brain, Database, Globe, Radio, GraduationCap } from "lucide-react"
+import { fadeUp, staggerContainer, staggerItem, defaultViewport } from '@/lib/animations'
 
 interface Service {
   id: number
@@ -91,13 +92,31 @@ function Services() {
   return (
     <section id="services" className="py-24 bg-[#F8F8FF]" aria-label="Services">
       <div className="container">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <Badge variant="outline" className="mb-4">What We Offer</Badge>
-          <h2 className="text-3xl font-semibold tracking-tight">Services</h2>
-          <p className="mt-3 text-gray-600">From idea to shipped: pragmatic scope, fast cycles, measurable outcomes.</p>
-        </div>
+        <motion.div
+          className="text-center max-w-3xl mx-auto mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
+          variants={staggerContainer}
+        >
+          <motion.div variants={staggerItem}>
+            <Badge variant="outline" className="mb-4">What We Offer</Badge>
+          </motion.div>
+          <motion.h2 className="text-3xl font-semibold tracking-tight" variants={staggerItem}>
+            Our Services
+          </motion.h2>
+          <motion.p className="mt-3 text-gray-600" variants={staggerItem}>
+            Put AI to work in your business.
+          </motion.p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
+          variants={fadeUp}
+        >
           {/* Left Sidebar - Service Cards */}
           <div className="lg:col-span-4 space-y-3">
             {services.map((service) => {
@@ -183,7 +202,7 @@ function Services() {
               </motion.div>
             </AnimatePresence>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

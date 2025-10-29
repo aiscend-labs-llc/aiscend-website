@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import {
   NavigationMenu,
@@ -10,6 +11,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { scrollToSection } from '@/lib/scroll'
+import { staggerContainer, staggerItem } from '@/lib/animations'
 
 function Header() {
   const [open, setOpen] = useState(false)
@@ -41,10 +43,22 @@ function Header() {
   ]
 
   return (
-    <header className="sticky top-0 z-50 bg-[#F8F8FF]/80 backdrop-blur border-b font-chakra">
+    <motion.header
+      className="sticky top-0 z-50 bg-[#F8F8FF]/80 backdrop-blur border-b font-chakra"
+      initial="hidden"
+      animate="visible"
+      variants={staggerContainer}
+    >
       <div className="container h-16 flex items-center justify-between">
-        <button onClick={() => scrollToSection('hero')} className="text-3xl font-semibold font-brand cursor-pointer">prism</button>
-        <NavigationMenu className="hidden md:flex" viewport={false}>
+        <motion.button
+          onClick={() => scrollToSection('hero')}
+          className="text-3xl font-semibold font-brand cursor-pointer"
+          variants={staggerItem}
+        >
+          prism
+        </motion.button>
+        <motion.div variants={staggerItem}>
+          <NavigationMenu className="hidden md:flex" viewport={false}>
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuLink onClick={() => scrollToSection('impact')} className={navigationMenuTriggerStyle()}>
@@ -108,37 +122,38 @@ function Header() {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink onClick={() => scrollToSection('about')} className={navigationMenuTriggerStyle()}>
-                About
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
               <NavigationMenuLink onClick={() => scrollToSection('contact')} className={navigationMenuTriggerStyle()}>
                 Contact
               </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-        <div className="flex items-center gap-3">
+        </motion.div>
+        <motion.div className="flex items-center gap-3" variants={staggerItem}>
           <Button onClick={() => scrollToSection('contact')} className="hidden sm:inline-flex bg-[#333333] text-white hover:bg-[#333333]/90">
             Get started
           </Button>
           <Button variant="outline" size="sm" aria-label="Menu" aria-expanded={open} onClick={() => setOpen(v => !v)} className="md:hidden">
             {open ? 'Close' : 'Menu'}
           </Button>
-        </div>
+        </motion.div>
       </div>
       {open && (
-        <div className="md:hidden border-t bg-[#F8F8FF]">
+        <motion.div
+          className="md:hidden border-t bg-[#F8F8FF]"
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{ duration: 0.2 }}
+        >
           <nav className="container py-3 grid gap-3 text-base" aria-label="Mobile">
             <Button variant="ghost" onClick={() => { setOpen(false); scrollToSection('impact') }} className="justify-start text-gray-700">Impact</Button>
             <Button variant="ghost" onClick={() => { setOpen(false); scrollToSection('services') }} className="justify-start text-gray-700">Services</Button>
-            <Button variant="ghost" onClick={() => { setOpen(false); scrollToSection('about') }} className="justify-start text-gray-700">About</Button>
             <Button variant="ghost" onClick={() => { setOpen(false); scrollToSection('contact') }} className="justify-start text-gray-700">Contact</Button>
           </nav>
-        </div>
+        </motion.div>
       )}
-    </header>
+    </motion.header>
   )
 }
 

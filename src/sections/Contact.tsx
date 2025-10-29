@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react'
+import { motion } from "framer-motion"
 import Cal, { getCalApi } from '@calcom/embed-react'
 import { Badge } from "@/components/ui/badge"
+import { scaleFade, staggerContainer, staggerItem, defaultViewport } from '@/lib/animations'
 
 function Contact() {
   const lottieContainerRef = useRef<HTMLDivElement | null>(null)
@@ -56,12 +58,33 @@ function Contact() {
         className="pointer-events-none absolute inset-0 z-0"
       />
       <div className="relative z-10 container max-w-3xl text-[#F8F8FF]">
-        <div className="text-center">
-          <Badge variant="outline" className="mb-4 border-[#F8F8FF] text-[#F8F8FF]">Get In Touch</Badge>
-          <h2 className="text-3xl font-semibold tracking-tight !text-[#F8F8FF]">Let's Scale Together</h2>
-          <p className="mt-3 text-[#F8F8FF]">Tell us about your project. We’ll reply within 1 business day.</p>
-        </div>
-        <div className="mt-10">
+        <motion.div
+          className="text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
+          variants={staggerContainer}
+        >
+          <motion.div variants={staggerItem}>
+            <Badge variant="outline" className="mb-4 border-[#F8F8FF] text-[#F8F8FF]">Get In Touch</Badge>
+          </motion.div>
+          <motion.h2
+            className="text-3xl font-semibold tracking-tight !text-[#F8F8FF]"
+            variants={staggerItem}
+          >
+            Let's Scale Together
+          </motion.h2>
+          <motion.p className="mt-3 text-[#F8F8FF]" variants={staggerItem}>
+            Let's discuss how Prism can elevate your business.
+          </motion.p>
+        </motion.div>
+        <motion.div
+          className="mt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
+          variants={scaleFade}
+        >
           <div className="h-[720px] sm:h-[820px] w-full overflow-auto rounded-md">
             <Cal
               namespace="30min"
@@ -70,7 +93,7 @@ function Contact() {
               config={{ layout: 'month_view' }}
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

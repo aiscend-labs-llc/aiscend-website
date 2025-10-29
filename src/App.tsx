@@ -3,7 +3,6 @@ import Header from './components/Header'
 import Hero from './sections/Hero'
 import Impact from './sections/Impact'
 import Services from './sections/Services'
-import About from './sections/About'
 import Contact from './sections/Contact'
 import Footer from './sections/Footer'
 import { scrollToSection } from './lib/scroll'
@@ -24,7 +23,6 @@ function App() {
         <Hero />
         <Impact />
         <Services />
-        <About />
         <Contact />
         <Footer />
       </main>
