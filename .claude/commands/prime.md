@@ -7,7 +7,6 @@ git ls-files
 
 ## Read
 README.md
-PROJECT.md
 
 ## Report
 Summarize your understanding of the codebase.
