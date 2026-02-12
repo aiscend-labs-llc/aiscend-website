@@ -90,7 +90,7 @@ function Services() {
   const ActiveIcon = services[activeService].icon
 
   return (
-    <section id="services" className="py-24 bg-[#F8F8FF]" aria-label="Services">
+    <section id="services" className="py-24 bg-stardust-a40" aria-label="Services">
       <div className="container">
         <motion.div
           className="text-center max-w-3xl mx-auto mb-16"
@@ -128,22 +128,22 @@ function Services() {
                   onClick={() => handleServiceClick(service.id)}
                   className={`relative w-full text-left rounded-lg border p-5 transition-all cursor-pointer overflow-hidden ${
                     isActive
-                      ? 'border-[#333333] bg-[#333333] text-[#F8F8FF] shadow-lg'
-                      : 'border-gray-200 bg-white hover:border-[#333333] hover:shadow-md'
+                      ? 'border-stardust-a0 bg-stardust-a0 text-stardust-a40 shadow-lg'
+                      : 'border-gray-200 bg-white hover:border-stardust-a0 hover:shadow-md'
                   }`}
                 >
                   <div className="flex items-start gap-3">
                     <ServiceIcon className={`w-5 h-5 mt-0.5 shrink-0 ${
-                      isActive ? 'text-[#F8F8FF]' : 'text-[#333333]'
+                      isActive ? 'text-stardust-a40' : 'text-stardust-a0'
                     }`} />
                     <div className="flex-1">
                       <h3 className={`text-lg font-medium ${
-                        isActive ? '!text-[#F8F8FF]' : 'text-[#333333]'
+                        isActive ? '!text-stardust-a40' : 'text-stardust-a0'
                       }`}>
                         {service.shortTitle}
                       </h3>
                       <p className={`mt-1 text-sm ${
-                        isActive ? '!text-[#F8F8FF]/80' : 'text-gray-600'
+                        isActive ? '!text-stardust-a40/80' : 'text-gray-600'
                       }`}>
                         {service.description}
                       </p>
@@ -152,9 +152,9 @@ function Services() {
 
                   {/* Progress Bar - Only show on active card */}
                   {isActive && (
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#F8F8FF]/20">
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-stardust-a40/20">
                       <div
-                        className="h-full bg-[#F8F8FF] transition-all duration-50 ease-linear"
+                        className="h-full bg-stardust-a40 transition-all duration-50 ease-linear"
                         style={{ width: `${progress}%` }}
                       />
                     </div>
@@ -176,10 +176,10 @@ function Services() {
                 className="bg-white rounded-lg border border-gray-200 p-8 lg:p-12 min-h-[400px] flex flex-col justify-center"
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 rounded-full bg-[#333333] flex items-center justify-center">
-                    <ActiveIcon className="w-8 h-8 text-[#F8F8FF]" />
+                  <div className="w-16 h-16 rounded-full bg-stardust-a0 flex items-center justify-center">
+                    <ActiveIcon className="w-8 h-8 text-stardust-a40" />
                   </div>
-                  <h3 className="text-3xl lg:text-4xl font-semibold text-[#333333]">
+                  <h3 className="text-3xl lg:text-4xl font-semibold text-stardust-a0">
                     {services[activeService].title}
                   </h3>
                 </div>
@@ -194,7 +194,7 @@ function Services() {
                     <div
                       key={index}
                       className={`h-1 flex-1 rounded-full transition-all ${
-                        index === activeService ? 'bg-[#333333]' : 'bg-gray-200'
+                        index === activeService ? 'bg-stardust-a0' : 'bg-gray-200'
                       }`}
                     />
                   ))}

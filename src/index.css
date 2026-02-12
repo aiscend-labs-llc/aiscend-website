@@ -9,6 +9,11 @@
 @theme {
   --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --color-brand: #FF6B00;
+  --color-stardust-a0: oklab(24.2% 0.012 -0.069);
+  --color-stardust-a10: oklab(39.2% 0.017 -0.08);
+  --color-stardust-a20: oklab(56.6% 0.018 -0.076);
+  --color-stardust-a30: oklab(87.3% 0.007 -0.025);
+  --color-stardust-a40: oklab(97.3% 0.004 -0.013);
 }
 
 html {
@@ -16,12 +21,12 @@ html {
 }
 
 body {
-  @apply bg-[#F8F8FF] text-[#484848] antialiased;
+  @apply bg-background text-foreground antialiased;
   font-family: var(--font-sans);
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #333333;
+  @apply text-foreground;
   font-family: 'Saira', var(--font-sans);
 }
 
@@ -31,7 +36,7 @@ h1 {
 
 .font-brand {
   font-family: 'Chakra Petch', var(--font-sans);
-  color: #333333;
+  @apply text-foreground;
 }
 
 .font-chakra {
@@ -140,71 +145,71 @@ section {
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.13 0.028 261.692);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.13 0.028 261.692);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.13 0.028 261.692);
-  --primary: oklch(0.21 0.034 264.665);
-  --primary-foreground: oklch(0.985 0.002 247.839);
-  --secondary: oklch(0.967 0.003 264.542);
-  --secondary-foreground: oklch(0.21 0.034 264.665);
-  --muted: oklch(0.967 0.003 264.542);
-  --muted-foreground: oklch(0.551 0.027 264.364);
-  --accent: oklch(0.967 0.003 264.542);
-  --accent-foreground: oklch(0.21 0.034 264.665);
+  --background: var(--color-stardust-a40);
+  --foreground: var(--color-stardust-a0);
+  --card: var(--color-stardust-a40);
+  --card-foreground: var(--color-stardust-a0);
+  --popover: var(--color-stardust-a40);
+  --popover-foreground: var(--color-stardust-a0);
+  --primary: var(--color-stardust-a10);
+  --primary-foreground: var(--color-stardust-a40);
+  --secondary: var(--color-stardust-a30);
+  --secondary-foreground: var(--color-stardust-a0);
+  --muted: var(--color-stardust-a30);
+  --muted-foreground: var(--color-stardust-a10);
+  --accent: var(--color-stardust-a30);
+  --accent-foreground: var(--color-stardust-a0);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.928 0.006 264.531);
-  --input: oklch(0.928 0.006 264.531);
-  --ring: oklch(0.707 0.022 261.325);
+  --border: var(--color-stardust-a30);
+  --input: var(--color-stardust-a30);
+  --ring: var(--color-stardust-a10);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0.002 247.839);
-  --sidebar-foreground: oklch(0.13 0.028 261.692);
-  --sidebar-primary: oklch(0.21 0.034 264.665);
-  --sidebar-primary-foreground: oklch(0.985 0.002 247.839);
-  --sidebar-accent: oklch(0.967 0.003 264.542);
-  --sidebar-accent-foreground: oklch(0.21 0.034 264.665);
-  --sidebar-border: oklch(0.928 0.006 264.531);
-  --sidebar-ring: oklch(0.707 0.022 261.325);
+  --sidebar: var(--color-stardust-a40);
+  --sidebar-foreground: var(--color-stardust-a0);
+  --sidebar-primary: var(--color-stardust-a10);
+  --sidebar-primary-foreground: var(--color-stardust-a40);
+  --sidebar-accent: var(--color-stardust-a30);
+  --sidebar-accent-foreground: var(--color-stardust-a0);
+  --sidebar-border: var(--color-stardust-a30);
+  --sidebar-ring: var(--color-stardust-a10);
 }
 
 .dark {
-  --background: oklch(0.13 0.028 261.692);
-  --foreground: oklch(0.985 0.002 247.839);
-  --card: oklch(0.21 0.034 264.665);
-  --card-foreground: oklch(0.985 0.002 247.839);
-  --popover: oklch(0.21 0.034 264.665);
-  --popover-foreground: oklch(0.985 0.002 247.839);
-  --primary: oklch(0.928 0.006 264.531);
-  --primary-foreground: oklch(0.21 0.034 264.665);
-  --secondary: oklch(0.278 0.033 256.848);
-  --secondary-foreground: oklch(0.985 0.002 247.839);
-  --muted: oklch(0.278 0.033 256.848);
-  --muted-foreground: oklch(0.707 0.022 261.325);
-  --accent: oklch(0.278 0.033 256.848);
-  --accent-foreground: oklch(0.985 0.002 247.839);
+  --background: var(--color-stardust-a0);
+  --foreground: var(--color-stardust-a40);
+  --card: var(--color-stardust-a0);
+  --card-foreground: var(--color-stardust-a40);
+  --popover: var(--color-stardust-a0);
+  --popover-foreground: var(--color-stardust-a40);
+  --primary: var(--color-stardust-a30);
+  --primary-foreground: var(--color-stardust-a0);
+  --secondary: var(--color-stardust-a10);
+  --secondary-foreground: var(--color-stardust-a40);
+  --muted: var(--color-stardust-a10);
+  --muted-foreground: var(--color-stardust-a30);
+  --accent: var(--color-stardust-a10);
+  --accent-foreground: var(--color-stardust-a40);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
+  --border: var(--color-stardust-a10);
+  --input: var(--color-stardust-a10);
+  --ring: var(--color-stardust-a30);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.21 0.034 264.665);
-  --sidebar-foreground: oklch(0.985 0.002 247.839);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0.002 247.839);
-  --sidebar-accent: oklch(0.278 0.033 256.848);
-  --sidebar-accent-foreground: oklch(0.985 0.002 247.839);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+  --sidebar: var(--color-stardust-a0);
+  --sidebar-foreground: var(--color-stardust-a40);
+  --sidebar-primary: var(--color-stardust-a30);
+  --sidebar-primary-foreground: var(--color-stardust-a0);
+  --sidebar-accent: var(--color-stardust-a10);
+  --sidebar-accent-foreground: var(--color-stardust-a40);
+  --sidebar-border: var(--color-stardust-a10);
+  --sidebar-ring: var(--color-stardust-a30);
 }
 
 @layer base {
@@ -223,5 +228,5 @@ section {
 .section--dark h4,
 .section--dark h5,
 .section--dark h6 {
-  color: #F8F8FF;
+  color: var(--color-stardust-a40);
 }

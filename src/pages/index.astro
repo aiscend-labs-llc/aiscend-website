@@ -9,14 +9,14 @@ import Footer from '../sections/Footer';
 ---
 
 <Layout title="Prism AI Solutions" description="Transform your business with AI & automation solutions.">
-  <a href="#hero" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-[#F8F8FF] focus:text-[#484848] focus:px-3 focus:py-2 focus:rounded-md">
+  <a href="#hero" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-background focus:text-foreground focus:px-3 focus:py-2 focus:rounded-md">
     Skip to content
   </a>
   <Header client:load />
   <main id="page" class="min-h-screen">
     <Hero client:load />
-    <Services client:load />
     <Impact client:visible />
+    <Services client:load />
     <Contact client:visible />
     <Footer client:visible />
   </main>

@@ -44,7 +44,7 @@ function Header() {
 
   return (
     <motion.header
-      className="sticky top-0 z-50 bg-[#F8F8FF]/80 backdrop-blur border-b font-chakra"
+      className="sticky top-0 z-50 bg-stardust-a40/80 backdrop-blur border-b font-chakra"
       initial="hidden"
       animate="visible"
       variants={staggerContainer}
@@ -130,7 +130,7 @@ function Header() {
         </NavigationMenu>
         </motion.div>
         <motion.div className="flex items-center gap-3" variants={staggerItem}>
-          <Button onClick={() => scrollToSection('contact')} className="hidden sm:inline-flex bg-[#333333] text-white hover:bg-[#333333]/90">
+          <Button onClick={() => scrollToSection('contact')} className="hidden sm:inline-flex bg-stardust-a0 text-white hover:bg-stardust-a0/90">
             Get started
           </Button>
           <Button variant="outline" size="sm" aria-label="Menu" aria-expanded={open} onClick={() => setOpen(v => !v)} className="md:hidden">
@@ -140,7 +140,7 @@ function Header() {
       </div>
       {open && (
         <motion.div
-          className="md:hidden border-t bg-[#F8F8FF]"
+          className="md:hidden border-t bg-stardust-a40"
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}

@@ -4,7 +4,7 @@ import { fadeUp, defaultViewport } from '@/lib/animations'
 
 function Footer() {
   return (
-    <footer id="footer" className="py-16 bg-[#222222] text-[#F8F8FF] border-t">
+    <footer id="footer" className="py-16 bg-stardust-a0 text-stardust-a40 border-t">
       <div className="container">
         <motion.div
           className="flex flex-col sm:flex-row items-center justify-between gap-4"

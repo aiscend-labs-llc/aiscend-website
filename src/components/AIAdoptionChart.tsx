@@ -48,10 +48,10 @@ export function AIAdoptionChart() {
   return (
     <Card className="w-full max-w-3xl mx-auto border-none shadow-xl bg-white/95 backdrop-blur-sm">
       <CardHeader className="space-y-1 pb-2">
-        <CardTitle className="text-xl font-bold font-saira text-[#333333]">
+        <CardTitle className="text-xl font-bold font-saira text-stardust-a0">
           AI Adoption is Accelerating
         </CardTitle>
-        <CardDescription className="text-xs text-[#484848]">
+        <CardDescription className="text-xs text-stardust-a10">
           Federal Reserve data shows rapid growth in business AI adoption from March to October 2025
         </CardDescription>
       </CardHeader>
@@ -155,7 +155,7 @@ export function AIAdoptionChart() {
             />
           </AreaChart>
         </ChartContainer>
-        <p className="mt-3 text-[10px] text-[#484848] text-center italic">
+        <p className="mt-3 text-[10px] text-stardust-a10 text-center italic">
           Source: U.S. Census Bureau, Business Trends and Outlook Survey (BTOS) 2025.
         </p>
       </CardContent>

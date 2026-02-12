@@ -7,7 +7,7 @@ import { fadeIn, staggerContainer, staggerItem } from '@/lib/animations';
 
 function Hero() {
   return (
-    <section id="hero" className="min-h-[calc(100vh-4rem)] flex items-center py-16 md:py-20 bg-[#F8F8FF]" aria-label="Hero">
+    <section id="hero" className="min-h-[calc(100vh-4rem)] flex items-center py-16 md:py-20 bg-stardust-a40" aria-label="Hero">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-10">
           <motion.div
@@ -32,10 +32,10 @@ function Hero() {
               className="mt-8 flex items-center gap-3"
               variants={staggerItem}
             >
-              <Button onClick={() => scrollToSection('contact')} className="bg-[#333] text-[#F8F8FF] hover:bg-[#333]/90 font-chakra">
+              <Button onClick={() => scrollToSection('contact')} className="bg-stardust-a0 text-stardust-a40 hover:bg-stardust-a0/90 font-chakra">
                 Book a Free Consultation
               </Button>
-              <Button onClick={() => scrollToSection('services')} variant="outline" className="border-[#333] text-[#333] hover:bg-[#333] hover:text-[#F8F8FF] font-chakra">
+              <Button onClick={() => scrollToSection('services')} variant="outline" className="border-stardust-a0 text-stardust-a0 hover:bg-stardust-a0 hover:text-stardust-a40 font-chakra">
                 Learn More
               </Button>
             </motion.div>
@@ -60,7 +60,7 @@ function Hero() {
                   speed={60}
                   deleteSpeed={10}
                   loop
-                  className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#333333] whitespace-pre-line text-center"
+                  className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-stardust-a0 whitespace-pre-line text-center"
                 />
               </div>
             </div>

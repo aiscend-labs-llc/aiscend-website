@@ -41,8 +41,8 @@ function Contact() {
       const cal = await getCalApi({ namespace: '30min' })
       cal('ui', {
         cssVarsPerTheme: {
-          light: { 'cal-brand': '#222222' },
-          dark: { 'cal-brand': '#F8F8FF' }
+          light: { 'cal-brand': '#1A1A40' },
+          dark: { 'cal-brand': '#F5F5FF' }
         },
         hideEventTypeDetails: false,
         layout: 'month_view'
@@ -51,13 +51,13 @@ function Contact() {
   }, [])
 
   return (
-    <section id="contact" className="relative isolate overflow-hidden py-24 bg-[#222222]" aria-label="Contact">
+    <section id="contact" className="relative isolate overflow-hidden py-24 bg-stardust-a0" aria-label="Contact">
       <div
         aria-hidden="true"
         ref={lottieContainerRef}
         className="pointer-events-none absolute inset-0 z-0"
       />
-      <div className="relative z-10 container max-w-3xl text-[#F8F8FF]">
+      <div className="relative z-10 container max-w-3xl text-stardust-a40">
         <motion.div
           className="text-center"
           initial="hidden"
@@ -66,15 +66,15 @@ function Contact() {
           variants={staggerContainer}
         >
           <motion.div variants={staggerItem}>
-            <Badge variant="outline" className="mb-4 border-[#F8F8FF] text-[#F8F8FF]">Get In Touch</Badge>
+            <Badge variant="outline" className="mb-4 border-stardust-a40 text-stardust-a40">Get In Touch</Badge>
           </motion.div>
           <motion.h2
-            className="text-3xl font-semibold tracking-tight !text-[#F8F8FF]"
+            className="text-3xl font-semibold tracking-tight !text-stardust-a40"
             variants={staggerItem}
           >
             Let's Scale Together
           </motion.h2>
-          <motion.p className="mt-3 text-[#F8F8FF]" variants={staggerItem}>
+          <motion.p className="mt-3 text-stardust-a40" variants={staggerItem}>
             Let's discuss how Prism can elevate your business.
           </motion.p>
         </motion.div>
