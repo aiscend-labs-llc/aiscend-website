@@ -35,7 +35,7 @@ function Hero() {
               <Button onClick={() => scrollToSection('contact')} className="bg-stardust-a0 text-stardust-a40 hover:bg-stardust-a0/90 font-chakra">
                 Book a Free Consultation
               </Button>
-              <Button onClick={() => scrollToSection('services')} variant="outline" className="border-stardust-a0 text-stardust-a0 hover:bg-stardust-a0 hover:text-stardust-a40 font-chakra">
+              <Button onClick={() => scrollToSection('solutions')} variant="outline" className="border-stardust-a0 text-stardust-a0 hover:bg-stardust-a0 hover:text-stardust-a40 font-chakra">
                 Learn More
               </Button>
             </motion.div>

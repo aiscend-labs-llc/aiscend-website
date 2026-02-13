@@ -51,7 +51,7 @@ function Contact() {
   }, [])
 
   return (
-    <section id="contact" className="relative isolate overflow-hidden py-24 bg-stardust-a0" aria-label="Contact">
+    <section id="contact" className="relative isolate overflow-hidden py-24 bg-black" aria-label="Contact">
       <div
         aria-hidden="true"
         ref={lottieContainerRef}

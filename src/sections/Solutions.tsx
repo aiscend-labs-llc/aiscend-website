@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Brain, Database, Globe, Radio, GraduationCap } from "lucide-react"
 import { fadeUp, staggerContainer, staggerItem, defaultViewport } from '@/lib/animations'
 
-interface Service {
+interface Solution {
   id: number
   title: string
   shortTitle: string
@@ -13,7 +13,7 @@ interface Service {
   icon: typeof Brain
 }
 
-const services: Service[] = [
+const solutions: Solution[] = [
   {
     id: 0,
     title: "AI & Automations",
@@ -32,8 +32,8 @@ const services: Service[] = [
   },
   {
     id: 2,
-    title: "Web Services",
-    shortTitle: "Web Services",
+    title: "Web Solutions",
+    shortTitle: "Web Solutions",
     description: "Build modern, scalable web applications tailored to your business needs.",
     fullDescription: "Create powerful, user-friendly web applications that scale with your business. Our full-stack development expertise ensures responsive, secure, and performant solutions that deliver exceptional user experiences across all devices.",
     icon: Globe
@@ -56,12 +56,12 @@ const services: Service[] = [
   }
 ]
 
-function Services() {
-  const [activeService, setActiveService] = useState(0)
+function Solutions() {
+  const [activeSolution, setActiveSolution] = useState(0)
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
-    // Reset progress when service changes
+    // Reset progress when solution changes
     setProgress(0)
 
     // Update progress bar every 50ms
@@ -72,25 +72,25 @@ function Services() {
       })
     }, 50)
 
-    // Change service after 12 seconds
+    // Change solution after 12 seconds
     const rotateInterval = setInterval(() => {
-      setActiveService((prev) => (prev + 1) % services.length)
+      setActiveSolution((prev) => (prev + 1) % solutions.length)
     }, 12000)
 
     return () => {
       clearInterval(progressInterval)
       clearInterval(rotateInterval)
     }
-  }, [activeService])
+  }, [activeSolution])
 
-  const handleServiceClick = (id: number) => {
-    setActiveService(id)
+  const handleSolutionClick = (id: number) => {
+    setActiveSolution(id)
   }
 
-  const ActiveIcon = services[activeService].icon
+  const ActiveIcon = solutions[activeSolution].icon
 
   return (
-    <section id="services" className="py-24 bg-stardust-a40" aria-label="Services">
+    <section id="solutions" className="py-24 bg-stardust-a40" aria-label="Solutions">
       <div className="container">
         <motion.div
           className="text-center max-w-3xl mx-auto mb-16"
@@ -103,7 +103,7 @@ function Services() {
             <Badge variant="outline" className="mb-4">What We Offer</Badge>
           </motion.div>
           <motion.h2 className="text-3xl font-semibold tracking-tight" variants={staggerItem}>
-            Our Services
+            Our Solutions
           </motion.h2>
           <motion.p className="mt-3 text-gray-600" variants={staggerItem}>
             Put AI to work in your business.
@@ -117,15 +117,15 @@ function Services() {
           viewport={defaultViewport}
           variants={fadeUp}
         >
-          {/* Left Sidebar - Service Cards */}
+          {/* Left Sidebar - Solution Cards */}
           <div className="lg:col-span-4 space-y-3">
-            {services.map((service) => {
-              const ServiceIcon = service.icon
-              const isActive = activeService === service.id
+            {solutions.map((solution) => {
+              const SolutionIcon = solution.icon
+              const isActive = activeSolution === solution.id
               return (
                 <button
-                  key={service.id}
-                  onClick={() => handleServiceClick(service.id)}
+                  key={solution.id}
+                  onClick={() => handleSolutionClick(solution.id)}
                   className={`relative w-full text-left rounded-lg border p-5 transition-all cursor-pointer overflow-hidden ${
                     isActive
                       ? 'border-stardust-a0 bg-stardust-a0 text-stardust-a40 shadow-lg'
@@ -133,19 +133,19 @@ function Services() {
                   }`}
                 >
                   <div className="flex items-start gap-3">
-                    <ServiceIcon className={`w-5 h-5 mt-0.5 shrink-0 ${
+                    <SolutionIcon className={`w-5 h-5 mt-0.5 shrink-0 ${
                       isActive ? 'text-stardust-a40' : 'text-stardust-a0'
                     }`} />
                     <div className="flex-1">
                       <h3 className={`text-lg font-medium ${
                         isActive ? '!text-stardust-a40' : 'text-stardust-a0'
                       }`}>
-                        {service.shortTitle}
+                        {solution.shortTitle}
                       </h3>
                       <p className={`mt-1 text-sm ${
                         isActive ? '!text-stardust-a40/80' : 'text-gray-600'
                       }`}>
-                        {service.description}
+                        {solution.description}
                       </p>
                     </div>
                   </div>
@@ -164,11 +164,11 @@ function Services() {
             })}
           </div>
 
-          {/* Right Content Area - Active Service Display */}
+          {/* Right Content Area - Active Solution Display */}
           <div className="lg:col-span-8">
             <AnimatePresence mode="wait">
               <motion.div
-                key={activeService}
+                key={activeSolution}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
@@ -180,21 +180,21 @@ function Services() {
                     <ActiveIcon className="w-8 h-8 text-stardust-a40" />
                   </div>
                   <h3 className="text-3xl lg:text-4xl font-semibold text-stardust-a0">
-                    {services[activeService].title}
+                    {solutions[activeSolution].title}
                   </h3>
                 </div>
 
                 <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
-                  {services[activeService].fullDescription}
+                  {solutions[activeSolution].fullDescription}
                 </p>
 
                 {/* Progress Indicator */}
                 <div className="mt-8 flex gap-2">
-                  {services.map((_, index) => (
+                  {solutions.map((_, index) => (
                     <div
                       key={index}
                       className={`h-1 flex-1 rounded-full transition-all ${
-                        index === activeService ? 'bg-stardust-a0' : 'bg-gray-200'
+                        index === activeSolution ? 'bg-stardust-a0' : 'bg-gray-200'
                       }`}
                     />
                   ))}
@@ -208,6 +208,6 @@ function Services() {
   )
 }
 
-export default Services
+export default Solutions
 
 

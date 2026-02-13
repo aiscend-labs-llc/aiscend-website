@@ -36,11 +36,11 @@ const chartData = [
 const chartConfig = {
   usedAI: {
     label: "Used AI (Last 2 Weeks)",
-    color: "#FF6B00",
+    color: "#0A0A0A",
   },
   willUseAI: {
     label: "Will Use AI (Next 6 Months)",
-    color: "#FF3366",
+    color: "#737373",
   },
 } satisfies ChartConfig
 

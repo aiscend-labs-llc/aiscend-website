@@ -16,7 +16,7 @@ import { staggerContainer, staggerItem } from '@/lib/animations'
 function Header() {
   const [open, setOpen] = useState(false)
 
-  const servicesLeft = [
+  const solutionsLeft = [
     {
       title: "AI & Automations",
       description: "Leverage artificial intelligence and automation to streamline your business processes."
@@ -27,9 +27,9 @@ function Header() {
     }
   ]
 
-  const servicesRight = [
+  const solutionsRight = [
     {
-      title: "Web Services",
+      title: "Web Solutions",
       description: "Build modern, scalable web applications tailored to your business needs."
     },
     {
@@ -66,16 +66,16 @@ function Header() {
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+              <NavigationMenuTrigger>Solutions</NavigationMenuTrigger>
               <NavigationMenuContent className="!duration-100">
                 <div className="w-[600px] p-4">
                   <div className="mb-3 pb-3 border-b">
                     <NavigationMenuLink asChild>
                       <button
-                        onClick={() => scrollToSection('services')}
+                        onClick={() => scrollToSection('solutions')}
                         className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground w-full text-left cursor-pointer"
                       >
-                        <div className="text-sm font-semibold leading-none">All Services</div>
+                        <div className="text-sm font-semibold leading-none">All Solutions</div>
                         <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                           View our complete range of offerings
                         </p>
@@ -84,16 +84,16 @@ function Header() {
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <ul className="space-y-3">
-                      {servicesLeft.map((service) => (
-                        <li key={service.title}>
+                      {solutionsLeft.map((solution) => (
+                        <li key={solution.title}>
                           <NavigationMenuLink asChild>
                             <button
-                              onClick={() => scrollToSection('services')}
+                              onClick={() => scrollToSection('solutions')}
                               className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground w-full text-left cursor-pointer"
                             >
-                              <div className="text-sm font-medium leading-none">{service.title}</div>
+                              <div className="text-sm font-medium leading-none">{solution.title}</div>
                               <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                                {service.description}
+                                {solution.description}
                               </p>
                             </button>
                           </NavigationMenuLink>
@@ -101,16 +101,16 @@ function Header() {
                       ))}
                     </ul>
                     <ul className="space-y-3">
-                      {servicesRight.map((service) => (
-                        <li key={service.title}>
+                      {solutionsRight.map((solution) => (
+                        <li key={solution.title}>
                           <NavigationMenuLink asChild>
                             <button
-                              onClick={() => scrollToSection('services')}
+                              onClick={() => scrollToSection('solutions')}
                               className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground w-full text-left cursor-pointer"
                             >
-                              <div className="text-sm font-medium leading-none">{service.title}</div>
+                              <div className="text-sm font-medium leading-none">{solution.title}</div>
                               <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                                {service.description}
+                                {solution.description}
                               </p>
                             </button>
                           </NavigationMenuLink>
@@ -148,7 +148,7 @@ function Header() {
         >
           <nav className="container py-3 grid gap-3 text-base" aria-label="Mobile">
             <Button variant="ghost" onClick={() => { setOpen(false); scrollToSection('impact') }} className="justify-start text-gray-700">Impact</Button>
-            <Button variant="ghost" onClick={() => { setOpen(false); scrollToSection('services') }} className="justify-start text-gray-700">Services</Button>
+            <Button variant="ghost" onClick={() => { setOpen(false); scrollToSection('solutions') }} className="justify-start text-gray-700">Solutions</Button>
             <Button variant="ghost" onClick={() => { setOpen(false); scrollToSection('contact') }} className="justify-start text-gray-700">Contact</Button>
           </nav>
         </motion.div>

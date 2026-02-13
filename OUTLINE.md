@@ -3,10 +3,10 @@
 ## Hero
 ### Book a FREE consultation button
 [Cool Buttons (Black)] -> links to calendar
-### See services button
- -> scrolls to services section
+### See solutions button
+ -> scrolls to solutions section
 
-## Bento Grid (Services)
+## Bento Grid (Solutions)
 
 
 
