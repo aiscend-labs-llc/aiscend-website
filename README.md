@@ -1,44 +1,51 @@
-# Prism AI Solutions Website
+# Aiscend Website
 
-This repository houses the source code for the **Prism AI Solutions** website.
-
-## About Prism AI Solutions
-
-Prism AI Solutions provides AI and technical consulting and implementation services tailored for small to mid-sized businesses. We help organizations leverage cutting-edge technology to optimize operations and drive growth.
+Marketing site for **Aiscend Labs** -- custom AI systems for established businesses.
 
 ## Tech Stack
 
-This project is built with a modern web development stack designed for performance and scalability:
-
--   **Framework:** [Astro](https://astro.build/)
--   **UI Library:** [React](https://react.dev/)
--   **Styling:** [Tailwind CSS](https://tailwindcss.com/) (v4)
--   **Component Library:** [shadcn/ui](https://ui.shadcn.com/) (Radix UI)
--   **Animations:** [Framer Motion](https://www.framer.com/motion/)
--   **Icons:** [Lucide React](https://lucide.dev/)
--   **Language:** [TypeScript](https://www.typescriptlang.org/)
--   **Runtime & Package Manager:** [Bun](https://bun.sh/)
+- **Framework:** [Astro](https://astro.build/) (static-first, React islands)
+- **UI:** [React](https://react.dev/) 19 + [shadcn/ui](https://ui.shadcn.com/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/) v4
+- **Animations:** [Framer Motion](https://www.framer.com/motion/) + [Lottie](https://airbnb.io/lottie/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Booking:** [Cal.com](https://cal.com/) embed
+- **Language:** TypeScript
+- **Runtime:** [Bun](https://bun.sh/)
 
 ## Development
 
-Install dependencies:
 ```bash
 bun install
+bun dev          # http://localhost:4321
+bun run build    # Production build
+bun run preview  # Preview production build
+bun run lint     # ESLint
 ```
 
-To start the local development server:
-```bash
-bun dev
+## Project Structure
+
+See [`FILEMAP.md`](./FILEMAP.md) for the full agent-readable codebase map.
+
+```
+src/
+├── pages/index.astro       # Main page (single-page scroll)
+├── layouts/Layout.astro    # HTML shell, fonts, meta
+├── sections/               # Page sections (Hero, Impact, Solutions, Contact, Footer)
+├── components/             # Header, shadcn/ui components
+├── lib/                    # Shared utilities (animations, scroll, cn)
+└── index.css               # Design tokens, theme, global styles
+
+_planning/                  # Strategy, copy, and implementation docs
+├── IMPLEMENTATION_PLAN.md  # Master plan (15 issues, 5 phases)
+├── copy/                   # Source-of-truth copy for all sections
+├── strategy/               # ICP, brand/voice, inspiration analysis
+├── reference/              # Cuban video spec, full build brief
+└── issue_creation/         # Issue templates and workflow guides
 ```
 
-The site will be available at `http://localhost:4321`.
+## Implementation
 
-To build the project for production:
-```bash
-bun run build
-```
+The site is mid-rebuild. Work is tracked in `_planning/IMPLEMENTATION_PLAN.md` as 15 issues across 5 phases, designed for single-session Droid execution.
 
-To preview the production build locally:
-```bash
-bun run preview
-```
+**Workflow:** One fresh agent session per issue, using the executor template at `_planning/issue_creation/EXECUTOR.md`. Post-implementation audit with `_planning/issue_creation/AUDITOR.md`.
