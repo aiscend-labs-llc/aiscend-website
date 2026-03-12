@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { DotPattern } from "@/components/magicui/dot-pattern";
+import { useEffect, useRef } from "react";
+import type { AnimationItem } from "lottie-web";
 import { Typewriter } from "@/components/ui/typewriter-text";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -40,6 +41,37 @@ const fadeInVariants = {
 };
 
 function Hero() {
+  const lottieRef = useRef<HTMLDivElement>(null);
+  const animRef = useRef<AnimationItem | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadAnimation() {
+      const mod = await import("lottie-web");
+      if (cancelled || !lottieRef.current) return;
+
+      animRef.current = mod.default.loadAnimation({
+        container: lottieRef.current,
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: "/lottie/aiscend_dot.json",
+        rendererSettings: { preserveAspectRatio: "xMidYMid meet" },
+      });
+    }
+
+    loadAnimation();
+
+    return () => {
+      cancelled = true;
+      if (animRef.current) {
+        animRef.current.destroy();
+        animRef.current = null;
+      }
+    };
+  }, []);
+
   return (
     <section
       id="hero"
@@ -107,20 +139,9 @@ function Hero() {
           >
             <div className="relative h-[420px] w-full overflow-visible">
               <div
-                className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[720px] w-[720px] -translate-x-1/2 -translate-y-1/2"
-                style={{
-                  maskImage:
-                    "radial-gradient(360px circle at center, white, transparent)",
-                  WebkitMaskImage:
-                    "radial-gradient(360px circle at center, white, transparent)",
-                  maskRepeat: "no-repeat",
-                  WebkitMaskRepeat: "no-repeat",
-                  maskPosition: "center",
-                  WebkitMaskPosition: "center",
-                }}
-              >
-                <DotPattern glow className="text-neutral-600/80" />
-              </div>
+                ref={lottieRef}
+                className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 opacity-70"
+              />
               <div
                 className="absolute inset-0 z-10 flex items-center justify-center"
               >
