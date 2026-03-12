@@ -114,7 +114,7 @@ export function AIAdoptionChart() {
               content={
                 <ChartTooltipContent
                   indicator="dot"
-                  formatter={(value, name, item, _index) => {
+                  formatter={(value, name, item) => {
                     const label = chartConfig[name as keyof typeof chartConfig]?.label || name
                     const color = item.color || item.fill
 

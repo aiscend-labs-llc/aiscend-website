@@ -13,7 +13,7 @@ function Footer() {
           viewport={defaultViewport}
           variants={fadeUp}
         >
-          <p className="text-sm">© {new Date().getFullYear()} Prism AI</p>
+          <p className="text-sm">© {new Date().getFullYear()} Aiscend</p>
           <nav className="flex items-center gap-4 text-sm">
             <button onClick={() => scrollToSection('hero')} className="hover:underline cursor-pointer">Top</button>
             <button onClick={() => scrollToSection('solutions')} className="hover:underline cursor-pointer">Solutions</button>

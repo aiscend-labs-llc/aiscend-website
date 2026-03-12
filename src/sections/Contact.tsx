@@ -41,7 +41,7 @@ function Contact() {
       const cal = await getCalApi({ namespace: '30min' })
       cal('ui', {
         cssVarsPerTheme: {
-          light: { 'cal-brand': '#1A1A40' },
+          light: { 'cal-brand': '#1A3A5C' },
           dark: { 'cal-brand': '#F5F5FF' }
         },
         hideEventTypeDetails: false,
@@ -88,7 +88,8 @@ function Contact() {
           <div className="h-[720px] sm:h-[820px] w-full overflow-auto rounded-md">
             <Cal
               namespace="30min"
-              calLink="prismtech/30min"
+              // TODO: update to confirmed Aiscend Cal.com link
+              calLink="aiscend/30min"
               style={{ width: '100%', height: '100%', overflow: 'auto' }}
               config={{ layout: 'month_view' }}
             />

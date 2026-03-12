@@ -1,7 +1,7 @@
 import { type Variants } from 'framer-motion'
 
 // Common easing for smooth, natural animations
-const ease = [0.25, 0.1, 0.25, 1] as const
+const ease: [number, number, number, number] = [0.25, 0.1, 0.25, 1]
 
 // Fade up animation - subtle upward movement with opacity
 export const fadeUp: Variants = {
@@ -11,7 +11,7 @@ export const fadeUp: Variants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: ease as any
+      ease
     }
   }
 }
@@ -23,7 +23,7 @@ export const fadeIn: Variants = {
     opacity: 1,
     transition: {
       duration: 0.5,
-      ease: ease as any
+      ease
     }
   }
 }
@@ -48,7 +48,7 @@ export const staggerItem: Variants = {
     y: 0,
     transition: {
       duration: 0.5,
-      ease: ease as any
+      ease
     }
   }
 }
@@ -61,7 +61,7 @@ export const scaleFade: Variants = {
     scale: 1,
     transition: {
       duration: 0.5,
-      ease: ease as any
+      ease
     }
   }
 }
@@ -74,7 +74,7 @@ export const slideLeft: Variants = {
     x: 0,
     transition: {
       duration: 0.6,
-      ease: ease as any
+      ease
     }
   }
 }
@@ -87,7 +87,7 @@ export const slideRight: Variants = {
     x: 0,
     transition: {
       duration: 0.6,
-      ease: ease as any
+      ease
     }
   }
 }

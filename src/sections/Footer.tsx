@@ -25,9 +25,9 @@ function Footer() {
             </span>
             <a
               className="text-2xl font-semibold tracking-tight hover:opacity-80 transition-opacity lg:text-3xl"
-              href="mailto:info@prismtech.ai"
+              href="mailto:info@aiscend.ai"
             >
-              info@prismtech.ai
+              info@aiscend.ai
             </a>
           </div>
           <div className="flex gap-16">
