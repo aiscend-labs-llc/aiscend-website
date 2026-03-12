@@ -55,7 +55,7 @@ function Header() {
           className="text-3xl font-semibold font-brand cursor-pointer"
           variants={staggerItem}
         >
-          prism
+          aiscend
         </motion.button>
         <motion.div variants={staggerItem}>
           <NavigationMenu className="hidden md:flex" viewport={false}>

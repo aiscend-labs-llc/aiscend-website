@@ -1,50 +1,39 @@
 import { motion } from "framer-motion"
-import { Badge } from "@/components/ui/badge"
-import { AIAdoptionChart } from "@/components/AIAdoptionChart"
-import { scaleFade, staggerContainer, staggerItem, defaultViewport } from '@/lib/animations'
+import { CirclePlay } from "lucide-react"
+import { staggerContainer, staggerItem, defaultViewport } from '@/lib/animations'
+
+// Set to a YouTube video ID to enable the embed (e.g., "dQw4w9WgXcQ")
+const YOUTUBE_VIDEO_ID: string | null = null;
 
 function Impact() {
   return (
     <section id="impact" className="section--dark py-24 bg-stardust-a0" aria-label="Impact">
       <div className="container">
         <motion.div
-          className="text-center max-w-3xl mx-auto mb-12"
+          className="mx-auto max-w-4xl"
           initial="hidden"
           whileInView="visible"
           viewport={defaultViewport}
           variants={staggerContainer}
         >
           <motion.div variants={staggerItem}>
-            <Badge variant="outline" className="mb-4 border-stardust-a40 text-stardust-a40">Industry Insight</Badge>
+            {YOUTUBE_VIDEO_ID ? (
+              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10">
+                <iframe
+                  className="h-full w-full"
+                  src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}`}
+                  title="YouTube video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            ) : (
+              <div className="flex aspect-video w-full flex-col items-center justify-center gap-4 rounded-xl border border-white/10 bg-white/5">
+                <CirclePlay className="size-16 text-stardust-a40/40" />
+                <p className="text-lg text-stardust-a40/60">Video Coming Soon</p>
+              </div>
+            )}
           </motion.div>
-          <motion.h2
-            className="text-4xl font-bold tracking-tight text-stardust-a40 font-saira"
-            variants={staggerItem}
-          >
-            The AI Revolution is Here
-          </motion.h2>
-          <motion.p
-            className="mt-4 text-lg text-stardust-a40"
-            variants={staggerItem}
-          >
-            Don't get left behind.
-          </motion.p>
-          <motion.p
-            className="mt-2 text-lg text-stardust-a40"
-            variants={staggerItem}
-          >
-            Federal Reserve data shows rapid growth in AI adoption among businesses.
-          </motion.p>
-        </motion.div>
-
-        <motion.div
-          className="max-w-6xl mx-auto"
-          initial="hidden"
-          whileInView="visible"
-          viewport={defaultViewport}
-          variants={scaleFade}
-        >
-          <AIAdoptionChart />
         </motion.div>
       </div>
     </section>
@@ -52,5 +41,3 @@ function Impact() {
 }
 
 export default Impact
-
-

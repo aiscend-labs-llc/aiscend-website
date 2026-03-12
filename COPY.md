@@ -31,7 +31,11 @@ Bespoke AI solutions designed *for the real world*
 
 # Solutions
 **Our Solutions**
-
+`public/lottie/blocks_1.json` for "AI Strategy & Roadmap" option
+`public/lottie/blocks_4.json` for "Custom Solution Development" option
+`public/lottie/blocks_3.json` for "Data Engineering & Machine Learning" option
+`public/lottie/blocks_5.json` for "Agentic AI Automation" option
+`public/lottie/blocks_2.json` for "AI Enablement & Governance" option
 ## 1. AI Strategy & Roadmap
 the "thinking before doing" work
 - AI Readiness Assessments
@@ -109,6 +113,10 @@ Don’t have testimonials yet
 Small team. Focused on small-mid sized businesses. Lean mean engineering machine.
 
 **Our Process:** What You Can Expect
+
+RAG
+White PenTest
+Virtual Employee Deployment (OpenClaw)
 
 # Testimonials
 

@@ -75,7 +75,7 @@ function Contact() {
             Let's Scale Together
           </motion.h2>
           <motion.p className="mt-3 text-stardust-a40" variants={staggerItem}>
-            Let's discuss how Prism can elevate your business.
+            Let's discuss how Aiscend can elevate your business.
           </motion.p>
         </motion.div>
         <motion.div

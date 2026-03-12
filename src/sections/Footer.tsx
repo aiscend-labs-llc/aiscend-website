@@ -73,7 +73,7 @@ function Footer() {
 
         {/* Wordmark */}
         <div className="mt-6 text-[11vw] font-semibold tracking-tighter leading-none lg:text-right lg:text-[8vw]">
-          prism<sup className="text-[0.35em] font-light align-super">&reg;</sup>
+          aiscend<sup className="text-[0.35em] font-light align-super">&reg;</sup>
         </div>
       </div>
 
@@ -81,7 +81,7 @@ function Footer() {
       <div className="bg-stardust-a0">
         <div className="container flex h-14 flex-col items-center justify-center gap-1 text-sm tracking-tight text-stardust-a40 sm:h-16 sm:flex-row sm:justify-between">
           <p className="text-stardust-a40/50">
-            &copy;{new Date().getFullYear()} Prism AI Solutions. All rights reserved.
+            &copy;{new Date().getFullYear()} Aiscend. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a href="#" className="text-stardust-a40/50 transition-colors hover:text-stardust-a40">

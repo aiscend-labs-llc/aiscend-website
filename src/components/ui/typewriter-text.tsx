@@ -2,78 +2,80 @@
 
 import { useEffect, useState } from "react";
 
-export interface TypewriterProps {
-  text: string | string[];
+interface TypewriterProps {
+  words: string[];
   speed?: number;
-  cursor?: string;
-  loop?: boolean;
-  deleteSpeed?: number;
-  delay?: number;
+  delayBetweenWords?: number;
+  cursor?: boolean;
+  cursorChar?: string;
   className?: string;
 }
 
 export function Typewriter({
-  text,
+  words,
   speed = 100,
-  cursor = "|",
-  loop = false,
-  deleteSpeed = 50,
-  delay = 1500,
+  delayBetweenWords = 2000,
+  cursor = true,
+  cursorChar = "|",
   className,
 }: TypewriterProps) {
   const [displayText, setDisplayText] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [textArrayIndex, setTextArrayIndex] = useState(0);
+  const [wordIndex, setWordIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [showCursor, setShowCursor] = useState(true);
 
-  // Validate and process input text
-  const textArray = Array.isArray(text) ? text : [text];
-  const currentText = textArray[textArrayIndex] || "";
+  const currentWord = words[wordIndex];
 
   useEffect(() => {
-    if (!currentText) return;
-
     const timeout = setTimeout(
       () => {
         if (!isDeleting) {
-          if (currentIndex < currentText.length) {
-            setDisplayText((prev) => prev + currentText[currentIndex]);
-            setCurrentIndex((prev) => prev + 1);
-          } else if (loop) {
-            setTimeout(() => setIsDeleting(true), delay);
+          if (charIndex < currentWord.length) {
+            setDisplayText(currentWord.substring(0, charIndex + 1));
+            setCharIndex(charIndex + 1);
+          } else {
+            setTimeout(() => {
+              setIsDeleting(true);
+            }, delayBetweenWords);
           }
         } else {
-          if (displayText.length > 0) {
-            setDisplayText((prev) => prev.slice(0, -1));
+          if (charIndex > 0) {
+            setDisplayText(currentWord.substring(0, charIndex - 1));
+            setCharIndex(charIndex - 1);
           } else {
             setIsDeleting(false);
-            setCurrentIndex(0);
-            setTextArrayIndex((prev) => (prev + 1) % textArray.length);
+            setWordIndex((prev) => (prev + 1) % words.length);
           }
         }
       },
-      isDeleting ? deleteSpeed : speed,
+      isDeleting ? speed / 2 : speed,
     );
 
     return () => clearTimeout(timeout);
-  }, [
-    currentIndex,
-    isDeleting,
-    currentText,
-    loop,
-    speed,
-    deleteSpeed,
-    delay,
-    displayText,
-    textArray.length,
-  ]);
+  }, [charIndex, currentWord, isDeleting, speed, delayBetweenWords, wordIndex, words]);
+
+  useEffect(() => {
+    if (!cursor) return;
+
+    const cursorInterval = setInterval(() => {
+      setShowCursor((prev) => !prev);
+    }, 500);
+
+    return () => clearInterval(cursorInterval);
+  }, [cursor]);
 
   return (
     <span className={className}>
       {displayText}
-      <span className="animate-pulse">{cursor}</span>
+      {cursor && (
+        <span
+          className="ml-1 transition-opacity duration-75"
+          style={{ opacity: showCursor ? 1 : 0 }}
+        >
+          {cursorChar}
+        </span>
+      )}
     </span>
   );
 }
-
-
