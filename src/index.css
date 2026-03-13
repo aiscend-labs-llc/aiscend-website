@@ -8,13 +8,15 @@
 
 @theme {
   --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --color-brand: #0A0A0A;
-  --color-stardust-a0: #0A0A0A;
-  --color-midnight: #1A1A40;
+  --font-serif: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif;
+  --color-brand: #1A3A5C;
+  --color-accent: #1A3A5C;
+  --color-stardust-a0: #1A1A1A;
+  --color-midnight: var(--color-accent);
   --color-stardust-a10: #404040;
   --color-stardust-a20: #737373;
   --color-stardust-a30: #D4D4D4;
-  --color-stardust-a40: #F5F5FF;
+  --color-stardust-a40: #FAFAF8;
 }
 
 html {
@@ -28,11 +30,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   @apply text-foreground;
-  font-family: 'Saira', var(--font-sans);
-}
-
-h1 {
-  font-family: 'Oxanium', var(--font-sans);
+  font-family: var(--font-serif);
 }
 
 .font-brand {
@@ -42,42 +40,6 @@ h1 {
 
 .font-chakra {
   font-family: 'Chakra Petch', var(--font-sans);
-}
-
-.font-montserrat {
-  font-family: 'Montserrat', var(--font-sans);
-}
-
-.font-saira {
-  font-family: 'Saira', var(--font-sans);
-}
-
-.font-quantico {
-  font-family: 'Quantico', var(--font-sans);
-}
-
-.font-electrolize {
-  font-family: 'Electrolize', var(--font-sans);
-}
-
-.font-oxanium {
-  font-family: 'Oxanium', var(--font-sans);
-}
-
-.font-vt323 {
-  font-family: 'VT323', var(--font-sans);
-}
-
-.font-monomaniac-one {
-  font-family: 'Monomaniac One', var(--font-sans);
-}
-
-.font-anta {
-  font-family: 'Anta', var(--font-sans);
-}
-
-.font-inter {
-  font-family: 'Inter', var(--font-sans);
 }
 
 .container {
@@ -158,8 +120,8 @@ section {
   --secondary-foreground: var(--color-stardust-a0);
   --muted: var(--color-stardust-a30);
   --muted-foreground: var(--color-stardust-a10);
-  --accent: var(--color-stardust-a30);
-  --accent-foreground: var(--color-stardust-a0);
+  --accent: var(--color-accent);
+  --accent-foreground: var(--color-stardust-a40);
   --destructive: oklch(0.577 0.245 27.325);
   --border: var(--color-stardust-a30);
   --input: var(--color-stardust-a30);
