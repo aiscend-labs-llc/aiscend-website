@@ -6,30 +6,97 @@ import type { AnimationItem } from "lottie-web";
 
 import { scrollToSection } from "@/lib/scroll";
 
-const features = [
+interface CaseStudy {
+  label: string;
+  problem: string;
+  result: string;
+  link?: string;
+  linkText?: string;
+}
+
+interface Feature {
+  id: string;
+  title: string;
+  description: string;
+  caseStudies?: CaseStudy[];
+}
+
+const features: Feature[] = [
   {
     id: "strategy",
     title: "AI Strategy & Roadmap",
     description:
       'The "thinking before doing" work. We assess your AI readiness, identify and prioritize high-impact use cases, run build vs. buy analyses, and model ROI — so every move is backed by data.',
+    caseStudies: [
+      {
+        label: "Floor Infrastructure",
+        problem:
+          "One person reviewed every project. Eleven QC cycles before anything shipped. Institutional knowledge lived in two people\u2019s heads. When they were unavailable, work stopped.",
+        result:
+          "Three integrated systems from a single discovery engagement \u2014 QC Pre-Flight targeting 50% of errors caught automatically, a Knowledge Base making 20 years of history searchable, and Expert Decision Capture preserving retiring specialists\u2019 reasoning.",
+        link: "/case-study/floor-infrastructure",
+        linkText: "See full case study \u2192",
+      },
+    ],
   },
   {
     id: "development",
     title: "Custom Solution Development",
     description:
       "Building and deploying AI and software solutions that work. From custom AI agents and conversational AI to full-stack web, mobile, and cloud applications tailored to your business.",
+    caseStudies: [
+      {
+        label: "Operation Health & Wellness",
+        problem:
+          "Bay Area medical startup with a Stanford researcher on the founding team. Needed AI-native architecture from day one but didn\u2019t have the in-house team to build at the speed the market demanded.",
+        result:
+          "AI agent-driven application development. The app is being built at a fraction of the cost and timeline of a traditional dev shop, with the technical rigor a healthcare product requires.",
+      },
+    ],
   },
   {
     id: "data",
     title: "Data Engineering & Machine Learning",
     description:
       "Unlock the value of your data across its entire lifecycle. We build industry-specific ML models, data pipelines, business intelligence dashboards, and analytics infrastructure from raw data to strategic insight.",
+    caseStudies: [
+      {
+        label: "Biogen",
+        problem:
+          "Biotech generates massive, complex datasets. The gap between having data and extracting actionable insight is where most companies stall.",
+        result:
+          "Workforce analytics across 40 biotech peers. Bridged the gap between raw data and strategic insight.",
+      },
+      {
+        label: "Luxury Fashion",
+        problem:
+          'A luxury company generating $1M+ profit per employee had a supply chain step they called one employee\u2019s "gut feel" \u2014 20 years of pattern recognition nobody had documented.',
+        result:
+          "Mapped the invisible decision-making chain. Built a prediction system combining 20 years of historical data with the expert\u2019s extracted reasoning. Fitment ML driving $3.4M/year in projected savings.",
+      },
+    ],
   },
   {
     id: "automation",
     title: "Agentic AI Automation",
     description:
-      "AI-driven systems that work around the clock. We automate repetitive business processes with intelligent agents that adapt, learn, and scale — freeing your team to focus on strategic work.",
+      "AI-driven systems that work around the clock. We automate repetitive business processes with intelligent agents that adapt, learn, and scale \u2014 freeing your team to focus on strategic work.",
+    caseStudies: [
+      {
+        label: "Cybersecurity",
+        problem:
+          "Security companies generate enormous volumes of signal data. Separating real threats from noise at speed requires analytical infrastructure most don\u2019t have.",
+        result:
+          "AI agent for proposal and contract automation. Built the analytical layer that makes rapid threat separation possible.",
+      },
+      {
+        label: "Supply Chain",
+        problem:
+          "Truck allocation decisions made by experienced dispatchers using pattern recognition built over decades. No system captured their logic.",
+        result:
+          "Same discovery-to-automation pattern \u2014 captured expert routing logic and built an agent system around it.",
+      },
+    ],
   },
   {
     id: "enablement",
@@ -47,10 +114,39 @@ const LOTTIE_PATHS = [
   "/lottie/blocks_2.json",
 ];
 
+function CaseStudyCard({ study }: { study: CaseStudy }) {
+  return (
+    <div className="space-y-3">
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Problem</p>
+        <p className="mt-1 text-sm text-muted-foreground">{study.problem}</p>
+      </div>
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Result</p>
+        <p className="mt-1 text-sm text-muted-foreground">{study.result}</p>
+      </div>
+      {study.link && (
+        <a
+          href={study.link}
+          className="group/cs inline-flex items-center text-sm font-medium text-accent-foreground hover:underline"
+        >
+          {study.linkText || "Learn more"}
+          <ArrowRight className="ml-1.5 size-3.5 transition-transform group-hover/cs:translate-x-1" />
+        </a>
+      )}
+    </div>
+  );
+}
+
 function Solutions() {
   const [selection, setSelection] = useState(0);
+  const [activeTab, setActiveTab] = useState<Record<number, "service" | "casestudy">>({});
+  const [activeCaseStudy, setActiveCaseStudy] = useState<Record<number, number>>({});
   const lottieContainerRef = useRef<HTMLDivElement>(null);
   const animInstanceRef = useRef<AnimationItem | null>(null);
+
+  const getTab = (i: number) => activeTab[i] || "service";
+  const getCaseStudyIdx = (i: number) => activeCaseStudy[i] || 0;
 
   useEffect(() => {
     let cancelled = false;
@@ -73,7 +169,6 @@ function Solutions() {
         rendererSettings: { preserveAspectRatio: "xMidYMid meet" },
       });
 
-      // Crop the SVG viewBox to zoom into the center content area
       anim.addEventListener("DOMLoaded", () => {
         const svg = lottieContainerRef.current?.querySelector("svg");
         if (svg) {
@@ -102,7 +197,6 @@ function Solutions() {
   return (
     <section id="solutions" className="py-24 bg-stardust-a40" aria-label="Solutions">
       <div className="container">
-        {/* Header */}
         <div className="mb-12 max-w-2xl">
           <h2 className="mb-4 text-3xl font-bold text-pretty lg:text-5xl">
             Our Solutions
@@ -113,42 +207,113 @@ function Solutions() {
           </p>
         </div>
 
-        {/* Content: list + animation */}
         <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-5">
-          {/* Feature list — 2 of 5 columns */}
           <ul className="space-y-2 lg:col-span-2">
-            {features.map((feature, i) => (
-              <li
-                key={feature.id}
-                className="group relative w-full cursor-pointer px-6 py-3 transition data-open:bg-accent"
-                data-open={selection === i ? "true" : undefined}
-                onClick={() => setSelection(i)}
-              >
-                <div className="flex items-center justify-between gap-x-2">
-                  <div className="text-sm font-semibold text-accent-foreground">
-                    {feature.title}
+            {features.map((feature, i) => {
+              const isOpen = selection === i;
+              const hasCaseStudies = feature.caseStudies && feature.caseStudies.length > 0;
+              const tab = getTab(i);
+              const csIdx = getCaseStudyIdx(i);
+
+              return (
+                <li
+                  key={feature.id}
+                  className="group relative w-full cursor-pointer px-6 py-3 transition data-open:bg-accent"
+                  data-open={isOpen ? "true" : undefined}
+                  onClick={() => setSelection(i)}
+                >
+                  <div className="flex items-center justify-between gap-x-2">
+                    <div className="text-sm font-semibold text-accent-foreground">
+                      {feature.title}
+                    </div>
+                    <div className="flex size-8 items-center justify-center rounded-full bg-accent text-accent-foreground group-hover:bg-primary group-hover:text-primary-foreground group-data-open:bg-primary group-data-open:text-primary-foreground">
+                      <ChevronDown className="size-4 shrink-0 transition-transform duration-200 group-data-open:rotate-180" />
+                    </div>
                   </div>
-                  <div className="flex size-8 items-center justify-center rounded-full bg-accent text-accent-foreground group-hover:bg-primary group-hover:text-primary-foreground group-data-open:bg-primary group-data-open:text-primary-foreground">
-                    <ChevronDown className="size-4 shrink-0 transition-transform duration-200 group-data-open:rotate-180" />
-                  </div>
-                </div>
-                <div className="hidden text-sm font-medium group-data-open:block">
-                  <p className="my-4 text-muted-foreground lg:my-6">
-                    {feature.description}
-                  </p>
-                  <button
-                    onClick={() => scrollToSection("contact")}
-                    className="group/link flex items-center pb-3 text-sm text-accent-foreground cursor-pointer"
-                  >
-                    Get started{" "}
-                    <ArrowRight className="ml-2 size-4 transition-transform group-hover/link:translate-x-1" />
-                  </button>
-                </div>
-              </li>
-            ))}
+
+                  {isOpen && (
+                    <div className="text-sm font-medium">
+                      {hasCaseStudies && (
+                        <div className="mt-3 flex gap-1">
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setActiveTab((prev) => ({ ...prev, [i]: "service" }));
+                            }}
+                            className={`cursor-pointer rounded-full px-3 py-1 text-xs font-semibold transition ${
+                              tab === "service"
+                                ? "bg-primary text-primary-foreground"
+                                : "bg-accent text-accent-foreground hover:bg-primary/10"
+                            }`}
+                          >
+                            Service
+                          </button>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setActiveTab((prev) => ({ ...prev, [i]: "casestudy" }));
+                            }}
+                            className={`cursor-pointer rounded-full px-3 py-1 text-xs font-semibold transition ${
+                              tab === "casestudy"
+                                ? "bg-primary text-primary-foreground"
+                                : "bg-accent text-accent-foreground hover:bg-primary/10"
+                            }`}
+                          >
+                            Case Study
+                          </button>
+                        </div>
+                      )}
+
+                      {tab === "service" ? (
+                        <>
+                          <p className="my-4 text-muted-foreground lg:my-6">
+                            {feature.description}
+                          </p>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              scrollToSection("contact");
+                            }}
+                            className="group/link flex items-center pb-3 text-sm text-accent-foreground cursor-pointer"
+                          >
+                            Get started{" "}
+                            <ArrowRight className="ml-2 size-4 transition-transform group-hover/link:translate-x-1" />
+                          </button>
+                        </>
+                      ) : (
+                        <div className="my-4 lg:my-6">
+                          {feature.caseStudies && feature.caseStudies.length > 1 && (
+                            <div className="mb-4 flex gap-2">
+                              {feature.caseStudies.map((cs, j) => (
+                                <button
+                                  key={cs.label}
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setActiveCaseStudy((prev) => ({ ...prev, [i]: j }));
+                                  }}
+                                  className={`cursor-pointer text-xs font-medium px-2.5 py-0.5 rounded border transition ${
+                                    csIdx === j
+                                      ? "border-primary bg-primary/10 text-accent-foreground"
+                                      : "border-stardust-a30 text-muted-foreground hover:border-primary/50"
+                                  }`}
+                                >
+                                  {cs.label}
+                                </button>
+                              ))}
+                            </div>
+                          )}
+                          {feature.caseStudies && (
+                            <CaseStudyCard study={feature.caseStudies[csIdx] || feature.caseStudies[0]} />
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </li>
+              );
+            })}
           </ul>
 
-          {/* Lottie — 3 of 5 columns */}
           <div className="lg:col-span-3 lg:pl-8">
             <div
               ref={lottieContainerRef}
