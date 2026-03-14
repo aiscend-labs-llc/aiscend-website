@@ -16,7 +16,7 @@ function Problem() {
           className="mx-auto max-w-3xl"
         >
           <motion.h2 variants={staggerItem} className="text-3xl leading-tight tracking-tight lg:text-5xl">
-            The knowledge that runs your business isn&apos;t in your systems.
+            Business Has Changed
           </motion.h2>
 
           <motion.div variants={staggerItem} className="mt-8 space-y-6 text-base leading-8 text-stardust-a0/90 lg:text-lg">
@@ -27,8 +27,8 @@ function Problem() {
             </p>
 
             <p>
-              This knowledge is the most valuable thing in your company. And right now it&apos;s walking out the door every
-              evening, hoping to come back tomorrow.
+              This knowledge is the most valuable thing in your company. And right now it&apos;s walking out the door
+              and AI is walking in.
             </p>
           </motion.div>
 
@@ -36,9 +36,7 @@ function Problem() {
             variants={staggerItem}
             className="mt-10 border-l-2 border-accent pl-6 text-lg leading-9 text-stardust-a0 lg:text-2xl"
           >
-            You&apos;ve heard you need AI. Everyone&apos;s heard that. The problem is that nobody asking &quot;how can we use AI?&quot;
-            is asking the right question. The right question is: what does your best person know that nobody else knows,
-            and how do we make that knowledge available to everyone?
+            It&apos;s time to capture knowledge so AI works like your best worker.
           </motion.blockquote>
         </motion.div>
       </div>
