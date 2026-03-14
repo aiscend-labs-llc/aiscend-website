@@ -27,6 +27,7 @@ interface DotPatternProps extends React.SVGProps<SVGSVGElement> {
   cy?: number;
   cr?: number;
   className?: string;
+  dotClassName?: string;
   glow?: boolean;
   [key: string]: unknown;
 }
@@ -70,6 +71,7 @@ export function DotPattern({
   cy = 1,
   cr = 1,
   className,
+  dotClassName = "text-neutral-950",
   glow = false,
   ...props
 }: DotPatternProps) {
@@ -131,7 +133,7 @@ export function DotPattern({
           cy={dot.y}
           r={cr}
           fill={glow ? `url(#${id}-gradient)` : "currentColor"}
-          className="text-neutral-950"
+          className={dotClassName}
           initial={glow ? { opacity: 0.4, scale: 1 } : {}}
           animate={
             glow

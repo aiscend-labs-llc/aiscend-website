@@ -1,41 +1,11 @@
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { motion } from "framer-motion"
 import Cal, { getCalApi } from '@calcom/embed-react'
 import { Badge } from "@/components/ui/badge"
+import { DotPattern } from "@/components/magicui/dot-pattern"
 import { scaleFade, staggerContainer, staggerItem, defaultViewport } from '@/lib/animations'
 
 function Contact() {
-  const lottieContainerRef = useRef<HTMLDivElement | null>(null)
-
-  useEffect(() => {
-    let isCancelled = false
-    let animationInstance: { destroy: () => void } | null = null
-
-    async function load() {
-      const mod = await import('lottie-web')
-      if (isCancelled || !lottieContainerRef.current) return
-
-      animationInstance = mod.default.loadAnimation({
-        container: lottieContainerRef.current,
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: '/lottie/floatingshapes.json',
-        rendererSettings: { preserveAspectRatio: 'xMidYMid slice' }
-      })
-    }
-
-    load()
-
-    return () => {
-      isCancelled = true
-      if (animationInstance) {
-        animationInstance.destroy()
-      }
-    }
-  }, [])
-
-  // Configure Cal.com UI theme and layout
   useEffect(() => {
     (async function () {
       const cal = await getCalApi({ namespace: '30min' })
@@ -52,11 +22,30 @@ function Contact() {
 
   return (
     <section id="contact" className="relative isolate overflow-hidden py-24 bg-black" aria-label="Contact">
+      {/* Top-center dot cluster */}
       <div
         aria-hidden="true"
-        ref={lottieContainerRef}
-        className="pointer-events-none absolute inset-0 z-0"
-      />
+        className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 z-0 w-[600px] h-[400px] [mask-image:radial-gradient(250px_circle_at_center,white,transparent)] [-webkit-mask-image:radial-gradient(250px_circle_at_center,white,transparent)]"
+      >
+        <DotPattern glow cr={1.2} width={20} height={20} dotClassName="text-stardust-a40/25" />
+      </div>
+
+      {/* Bottom-right dot cluster */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-16 -right-16 z-0 w-[500px] h-[500px] [mask-image:radial-gradient(220px_circle_at_center,white,transparent)] [-webkit-mask-image:radial-gradient(220px_circle_at_center,white,transparent)]"
+      >
+        <DotPattern glow cr={1} width={18} height={18} dotClassName="text-stardust-a40/20" />
+      </div>
+
+      {/* Left-center dot cluster */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-1/2 -left-16 -translate-y-1/2 z-0 w-[400px] h-[500px] [mask-image:radial-gradient(180px_circle_at_center,white,transparent)] [-webkit-mask-image:radial-gradient(180px_circle_at_center,white,transparent)]"
+      >
+        <DotPattern glow cr={0.9} width={22} height={22} dotClassName="text-stardust-a40/15" />
+      </div>
+
       <div className="relative z-10 container max-w-3xl text-stardust-a40">
         <motion.div
           className="text-center"
@@ -72,10 +61,10 @@ function Contact() {
             className="text-3xl font-semibold tracking-tight !text-stardust-a40"
             variants={staggerItem}
           >
-            Let's Scale Together
+            Let's Build AI Around Humans
           </motion.h2>
           <motion.p className="mt-3 text-stardust-a40" variants={staggerItem}>
-            Let's discuss how Aiscend can elevate your business.
+            No pitch deck. No 47-slide proposal. We'll talk about what's actually going on in your business and figure out if we can help. If we can't, or if it's not worth your time and money, we'll tell you.
           </motion.p>
         </motion.div>
         <motion.div
@@ -101,5 +90,3 @@ function Contact() {
 }
 
 export default Contact
-
-
