@@ -65,14 +65,14 @@ const features: Feature[] = [
         problem:
           "Biotech generates massive, complex datasets. The gap between having data and extracting actionable insight is where most companies stall.",
         result:
-          "Workforce analytics across 40 biotech peers. Bridged the gap between raw data and strategic insight.",
+          "Workforce analytics across ~57,000 job postings from 40 US biotech peer companies (2023\u20132024). Competitive salary benchmarking showed Biogen pays top-of-market \u2014 $119K baseline after controlling for role and location. Hiring momentum analysis revealed a commercial-to-operations pivot, with Sales Manager postings down 28 percentage points. Time-to-fill averaging 30 days versus a 44-day peer average. Remote positioning gap identified: 6% of Biogen roles listed as remote versus 38% across peers.",
       },
       {
         label: "Luxury Fashion",
         problem:
-          'A luxury company generating $1M+ profit per employee had a supply chain step they called one employee\u2019s "gut feel" \u2014 20 years of pattern recognition nobody had documented.',
+          'A luxury company generating $1M+ profit per employee had a supply chain step they called one employee\u2019s "gut feel" \u2014 20 years of pattern recognition nobody had documented. Twenty years of unwarehoused data trapped with a vendor-locked ERP provider.',
         result:
-          "Mapped the invisible decision-making chain. Built a prediction system combining 20 years of historical data with the expert\u2019s extracted reasoning. Fitment ML driving $3.4M/year in projected savings.",
+          "Mapped the invisible decision-making chain. Discovery led to a Meta API and heuristics provider for fitment prediction \u2014 what started as knowledge capture became a full ML project. The company was losing $3.4M per year on ordering fitment. A 2% return rate reduction translates to significant savings at their margin profile.",
       },
     ],
   },
@@ -85,16 +85,16 @@ const features: Feature[] = [
       {
         label: "Cybersecurity",
         problem:
-          "Security companies generate enormous volumes of signal data. Separating real threats from noise at speed requires analytical infrastructure most don\u2019t have.",
+          "Cybersecurity contracts are dense, technical, and high-stakes. Turnaround on proposals and reviews was the bottleneck.",
         result:
-          "AI agent for proposal and contract automation. Built the analytical layer that makes rapid threat separation possible.",
+          "AI agent for automated proposal writing and contract review. Faster turnaround without sacrificing the precision the domain demands.",
       },
       {
-        label: "Supply Chain",
+        label: "Supply Chain Logistics",
         problem:
-          "Truck allocation decisions made by experienced dispatchers using pattern recognition built over decades. No system captured their logic.",
+          "A company that allocates trucks and finds contractors. Proposal speed means contract wins, but generating accurate proposals was slow and manual.",
         result:
-          "Same discovery-to-automation pattern \u2014 captured expert routing logic and built an agent system around it.",
+          "Same pattern as cybersecurity \u2014 AI agent for proposal writing and review. Simpler domain, still high-value. Faster proposals, more contracts won.",
       },
     ],
   },

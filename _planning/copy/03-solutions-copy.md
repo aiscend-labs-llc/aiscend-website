@@ -66,15 +66,15 @@ A luxury fashion company generating over $1M in profit per employee. 20+ years i
 ### The Problem
 Their supply chain prediction process had a step that internal teams referred to as one employee's "gut feel." This person had been making forecasting decisions for two decades based on pattern recognition she couldn't consciously explain. When we mapped the workflow, there was literally a gap in the process diagram — no documentation, no system, just intuition built on years of reading the market.
 
-Meanwhile, the company was sitting on 20 years of historical data in a warehouse system. Nobody was using it.
+Meanwhile, the company was sitting on 20 years of unwarehoused data trapped with a vendor-locked ERP provider. Nobody was using it.
 
 ### What We Did
 We spent four hours with the employee in question. Not asking "how do you forecast?" — she'd been asked that before and couldn't answer it. Instead, we asked what she reads in the morning, how she knows when a number feels wrong, what sources she turns to when she's uncertain. We mapped the invisible chain of pattern recognition that drove her decisions.
 
-Then we connected that understanding to the historical dataset nobody had touched.
+Then we connected that understanding to the historical dataset nobody had touched. Discovery led to a Meta API and heuristics provider for fitment prediction — what started as a knowledge capture engagement became a full ML project.
 
 ### What We Built
-A prediction system that combines 20 years of data with the decision-making framework we extracted from the expert. The company hired a CTO off the back of this engagement. We still meet with them weekly.
+A prediction system that combines 20 years of data with the decision-making framework we extracted from the expert. The company was losing $3.4M per year on ordering fitment alone. A 2% reduction in return rate translates to significant savings at their margin profile. The company hired a CTO off the back of this engagement. We still meet with them weekly.
 
 ### Why This One Matters
 This is the story that makes people understand what Aiscend actually does. A traditional AI consulting firm would have looked at the data warehouse and built a model. We looked at the person and built around her reasoning. The data was always there. The missing piece was the human nuance nobody thought to capture.
@@ -131,13 +131,13 @@ This is the typical Aiscend entry point. Established business, 15+ years of accu
 
 ---
 
-## SOLUTION PROFILE: BIOGEN (Named — Data Science)
+## SOLUTION PROFILE: BIOGEN (Named — Workforce Analytics)
 
 ### The Company
 Biogen — one of the world's leading biotechnology companies.
 
 ### What We Did
-Data science project work. Biotech generates massive, complex datasets and the gap between having data and extracting actionable insight from it is where most companies stall. We helped bridge that gap.
+Workforce analytics across ~57,000 job postings from 40 US biotech peer companies (2023–2024). Competitive salary benchmarking showed Biogen pays top-of-market — $119K baseline after controlling for role and location. Hiring momentum analysis revealed a commercial-to-operations pivot, with Sales Manager postings down 28 percentage points. Time-to-fill averaging 30 days versus a 44-day peer average, indicating employer brand strength. Identified a remote positioning gap: 6% of Biogen roles listed as remote versus 38% across peers.
 
 ### What It Shows
 Aiscend operates across the full spectrum — from owner-operated pharmacies to publicly traded biotech. The data science fundamentals are the same. The domain expertise we bring is in understanding what questions to ask of the data before building anything.
@@ -150,10 +150,23 @@ Aiscend operates across the full spectrum — from owner-operated pharmacies to 
 Cybersecurity company.
 
 ### What We Did
-Data science and analytics work. Security companies generate enormous volumes of signal data and need systems that can separate real threats from noise at speed. We worked on the analytical layer that makes that possible.
+AI agent for automated proposal writing and contract review. Cybersecurity contracts are dense, technical, and high-stakes. We built a system that accelerates turnaround on proposals and reviews without sacrificing the precision the domain demands.
 
 ### What It Shows
-Another example of Aiscend's range. Not every engagement is a knowledge-capture project. When a company has the data but needs the analytical infrastructure to make it useful, we build that too.
+Another example of Aiscend's range. Not every engagement is a knowledge-capture project. When a company needs faster turnaround on complex, repetitive document workflows, we build agents that handle it.
+
+---
+
+## SOLUTION PROFILE: SUPPLY CHAIN LOGISTICS (Anonymized)
+
+### The Industry
+Supply chain logistics — truck allocation and contractor sourcing.
+
+### What We Did
+Same pattern as cybersecurity — AI agent for proposal writing and review. Simpler domain, still high-value. Proposal speed means contract wins.
+
+### What It Shows
+The proposal automation pattern scales across industries. When the bottleneck is generating accurate, technical proposals at speed, the solution is the same regardless of whether you're moving trucks or reviewing security contracts.
 
 ---
 
@@ -189,8 +202,9 @@ We find the knowledge, capture it, and build systems around it. The industry cha
 | Commercial real estate | NO | Boston-based, legacy IT team dynamic | Don't name company, CEO, or IT firm |
 | Defense-adjacent | NO | Building management, military-adjacent | Don't specify branch. Keep tech description general. |
 | Pharmacy | NO | Independent, owner-operated | Don't name the owner or the pharmacy |
-| Biogen | YES | Data science project work, biotech | Keep scope description general. Don't name specific datasets, products, or internal teams. |
-| Cybersecurity co. | NO | Industry, data science/analytics work | Don't name the company. Keep description general. |
+| Biogen | YES | Workforce analytics, salary benchmarking, hiring momentum, biotech | Keep dataset vendor and internal contacts general. Don't name specific internal teams. |
+| Cybersecurity co. | NO | Industry, AI agent for proposal/contract automation | Don't name the company. |
+| Supply chain logistics co. | NO | Industry (truck allocation, contractor sourcing), AI agent for proposal automation | Don't name the company. |
 
 ### Voice
 Same register as the rest of the site. Let the specifics do the work — a company doing $1M profit per employee with Disney as a client doesn't need adjectives. The facts carry the credibility.
