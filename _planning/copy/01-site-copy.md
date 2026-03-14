@@ -93,11 +93,11 @@ Their COO was the bottleneck—reviewing every design through 11 quality control
 
 **Header:** Who we are.
 
-**Spencer Karns** — Co-founder. Runs discovery, client relationships, and systems architecture. Started by upskilling C-suites on AI, realized the real value was in building the systems, not explaining them. Has mapped workflows for companies from $5M to $400M+ in revenue across engineering, medical, real estate, and defense.
+**Spencer Karns** — Co-founder. Babson alum. Studied deep learning in Spain, co-founded the AI Generator Lab at Babson, and served on the Genius Bar in the Goldman Sachs 10,000 Small Businesses Innovators Bootcamp. Runs discovery, client relationships, and systems architecture for companies from $5M to $400M+ in revenue across engineering, medical, and real estate.
 
-**Connor Raney** — Co-founder & Technical Lead. Machine learning, system design, and the infrastructure that makes autonomous agent workflows actually run. Builds the backends that turn discovery insights into working software.
+**Connor Raney** — Co-founder & Technical Lead. Babson alum and OpenAI lab member. Co-founded the AI Generator Lab at Babson and served on the Genius Bar in the Goldman Sachs 10,000 Small Businesses Innovators Bootcamp. Machine learning, system design, and the infrastructure that makes autonomous agent workflows run. Builds the backends that turn discovery insights into working software, with domain experience in cybersecurity.
 
-**Arman Ozsu** — ML & Development. Data science, predictive analytics, and automation. Brings the quantitative rigor that turns messy enterprise data into structured, trainable systems.
+**Arman Ozsu** — ML & Development. Babson alum. Served on the Genius Bar in the Goldman Sachs 10,000 Small Businesses Innovators Bootcamp. Data science, predictive analytics, and automation. Brings the quantitative rigor that turns messy enterprise data into structured, trainable systems.
 
 ---
 

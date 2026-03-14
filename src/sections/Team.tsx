@@ -6,17 +6,20 @@ const team = [
   {
     name: "Spencer Karns",
     role: "Co-founder",
-    bio: "Runs discovery, client relationships, and systems architecture. Started by upskilling C-suites on AI, realized the real value was in building the systems, not explaining them. Has mapped workflows for companies from $5M to $400M+ in revenue across engineering, medical, real estate, and defense.",
+    photo: "/team/spencer.jpg",
+    bio: "Babson alum. Studied deep learning in Spain, co-founded the AI Generator Lab at Babson, and served on the Genius Bar in the Goldman Sachs 10,000 Small Businesses Innovators Bootcamp. Runs discovery, client relationships, and systems architecture for companies from $5M to $400M+ in revenue across engineering, medical, and real estate.",
   },
   {
     name: "Connor Raney",
     role: "Co-founder & Technical Lead",
-    bio: "Machine learning, system design, and the infrastructure that makes autonomous agent workflows actually run. Builds the backends that turn discovery insights into working software.",
+    photo: "/team/connor.jpg",
+    bio: "Babson alum and OpenAI lab member. Co-founded the AI Generator Lab at Babson and served on the Genius Bar in the Goldman Sachs 10,000 Small Businesses Innovators Bootcamp. Machine learning, system design, and the infrastructure that makes autonomous agent workflows run. Builds the backends that turn discovery insights into working software, with domain experience in cybersecurity.",
   },
   {
     name: "Arman Ozsu",
     role: "ML & Development",
-    bio: "Data science, predictive analytics, and automation. Brings the quantitative rigor that turns messy enterprise data into structured, trainable systems.",
+    photo: "/team/arman.jpg",
+    bio: "Babson alum. Served on the Genius Bar in the Goldman Sachs 10,000 Small Businesses Innovators Bootcamp. Data science, predictive analytics, and automation. Brings the quantitative rigor that turns messy enterprise data into structured, trainable systems.",
   },
 ];
 
@@ -43,13 +46,25 @@ function Team() {
             className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-3"
           >
             {team.map((member) => (
-              <article key={member.name} className="space-y-3">
-                <h3 className="text-xl font-semibold tracking-tight">
-                  {member.name}
-                </h3>
-                <p className="text-sm font-semibold text-muted-foreground">
-                  {member.role}
-                </p>
+              <article key={member.name} className="space-y-4">
+                {member.photo && (
+                  <div className="aspect-[4/5] w-full overflow-hidden rounded-xl bg-stardust-a30/30">
+                    <img
+                      src={member.photo}
+                      alt={member.name}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+                <div className="space-y-2">
+                  <h3 className="text-xl font-semibold tracking-tight">
+                    {member.name}
+                  </h3>
+                  <p className="text-sm font-semibold text-muted-foreground">
+                    {member.role}
+                  </p>
+                </div>
                 <p className="text-sm leading-7 text-stardust-a0/90 lg:text-base">
                   {member.bio}
                 </p>
