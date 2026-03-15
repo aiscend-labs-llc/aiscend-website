@@ -31,7 +31,7 @@ function TrustStrip() {
             </p>
             <p className="mt-4">
               We find the knowledge, capture it, and build systems around it. The industry changes
-              every time. The approach doesn&apos;t.
+              every time. The approach doesn&apos;t. The solution is always custom.
             </p>
           </motion.div>
 

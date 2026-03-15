@@ -31,8 +31,9 @@ function Hero() {
               className="mt-5 text-lg sm:text-xl text-muted-foreground"
               variants={staggerItem}
             >
-              We sit with your experts, map how they actually think, and build AI
-              systems around their real workflows. No reports. Working software.
+              We sit with your experts, map how they actually think, and build
+              custom AI systems around their real workflows. No templates. No
+              off-the-shelf tools. Working software, built around your business.
             </motion.p>
 
             <motion.div
