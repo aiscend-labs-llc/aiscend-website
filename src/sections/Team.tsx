@@ -1,6 +1,12 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
-import { defaultViewport, staggerContainer, staggerItem } from "@/lib/animations";
+import {
+  getInitialState,
+  getViewportOptions,
+  getViewportState,
+  staggerContainer,
+  staggerItem,
+} from "@/lib/animations";
 
 const team = [
   {
@@ -24,13 +30,15 @@ const team = [
 ];
 
 function Team() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section id="team" className="bg-stardust-a40 py-24" aria-label="Team">
       <div className="container">
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={defaultViewport}
+          initial={getInitialState(shouldReduceMotion)}
+          whileInView={getViewportState(shouldReduceMotion)}
+          viewport={getViewportOptions(shouldReduceMotion)}
           variants={staggerContainer}
           className="mx-auto max-w-5xl"
         >

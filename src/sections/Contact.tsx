@@ -1,11 +1,20 @@
 import { useEffect } from 'react'
-import { motion } from "framer-motion"
+import { motion, useReducedMotion } from "framer-motion"
 import Cal, { getCalApi } from '@calcom/embed-react'
 import { Badge } from "@/components/ui/badge"
 import { DotPattern } from "@/components/magicui/dot-pattern"
-import { scaleFade, staggerContainer, staggerItem, defaultViewport } from '@/lib/animations'
+import {
+  getInitialState,
+  getViewportOptions,
+  getViewportState,
+  scaleFade,
+  staggerContainer,
+  staggerItem,
+} from '@/lib/animations'
 
 function Contact() {
+  const shouldReduceMotion = useReducedMotion()
+
   useEffect(() => {
     (async function () {
       const cal = await getCalApi({ namespace: '30min' })
@@ -49,9 +58,9 @@ function Contact() {
       <div className="relative z-10 container max-w-3xl text-stardust-a40">
         <motion.div
           className="text-center"
-          initial="hidden"
-          whileInView="visible"
-          viewport={defaultViewport}
+          initial={getInitialState(shouldReduceMotion)}
+          whileInView={getViewportState(shouldReduceMotion)}
+          viewport={getViewportOptions(shouldReduceMotion)}
           variants={staggerContainer}
         >
           <motion.div variants={staggerItem}>
@@ -69,9 +78,9 @@ function Contact() {
         </motion.div>
         <motion.div
           className="mt-10"
-          initial="hidden"
-          whileInView="visible"
-          viewport={defaultViewport}
+          initial={getInitialState(shouldReduceMotion)}
+          whileInView={getViewportState(shouldReduceMotion)}
+          viewport={getViewportOptions(shouldReduceMotion)}
           variants={scaleFade}
         >
           <div className="ambient-shell h-[720px] sm:h-[820px] w-full overflow-auto rounded-lg p-px">

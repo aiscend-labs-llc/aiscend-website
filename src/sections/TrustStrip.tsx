@@ -1,6 +1,12 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
-import { defaultViewport, staggerContainer, staggerItem } from "@/lib/animations";
+import {
+  getInitialState,
+  getViewportOptions,
+  getViewportState,
+  staggerContainer,
+  staggerItem,
+} from "@/lib/animations";
 
 const trustMarkers = [
   "Biogen",
@@ -12,13 +18,15 @@ const trustMarkers = [
 ];
 
 function TrustStrip() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section id="proof" className="py-16 bg-stardust-a40" aria-label="Proof">
       <div className="container">
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={defaultViewport}
+          initial={getInitialState(shouldReduceMotion)}
+          whileInView={getViewportState(shouldReduceMotion)}
+          viewport={getViewportOptions(shouldReduceMotion)}
           variants={staggerContainer}
           className="mx-auto max-w-4xl"
         >

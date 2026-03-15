@@ -6,7 +6,9 @@ import {
   useReducedMotion,
 } from "framer-motion";
 import {
-  defaultViewport,
+  getInitialState,
+  getViewportOptions,
+  getViewportState,
   staggerContainer,
   staggerItem,
 } from "@/lib/animations";
@@ -48,6 +50,32 @@ function ProblemAndVideo() {
     shouldReduceMotion ? [0, 0] : [80, 0]
   );
 
+  const stopTimePoll = useCallback(() => {
+    if (pollRef.current !== null) {
+      cancelAnimationFrame(pollRef.current);
+      pollRef.current = null;
+    }
+  }, []);
+
+  const startTimePoll = useCallback(() => {
+    stopTimePoll();
+    const poll = () => {
+      if (!playerRef.current) return;
+      try {
+        const time = playerRef.current.getCurrentTime();
+        if (time >= YT_END) {
+          playerRef.current.pauseVideo();
+          stopTimePoll();
+          return;
+        }
+      } catch {
+        // Player not ready
+      }
+      pollRef.current = requestAnimationFrame(poll);
+    };
+    pollRef.current = requestAnimationFrame(poll);
+  }, [stopTimePoll]);
+
   const initPlayer = useCallback(() => {
     if (!videoContainerRef.current || playerRef.current) return;
 
@@ -80,33 +108,7 @@ function ProblemAndVideo() {
         },
       },
     });
-  }, []);
-
-  const startTimePoll = useCallback(() => {
-    stopTimePoll();
-    const poll = () => {
-      if (!playerRef.current) return;
-      try {
-        const time = playerRef.current.getCurrentTime();
-        if (time >= YT_END) {
-          playerRef.current.pauseVideo();
-          stopTimePoll();
-          return;
-        }
-      } catch {
-        // Player not ready
-      }
-      pollRef.current = requestAnimationFrame(poll);
-    };
-    pollRef.current = requestAnimationFrame(poll);
-  }, []);
-
-  const stopTimePoll = useCallback(() => {
-    if (pollRef.current !== null) {
-      cancelAnimationFrame(pollRef.current);
-      pollRef.current = null;
-    }
-  }, []);
+  }, [startTimePoll, stopTimePoll]);
 
   // Load YouTube IFrame API
   useEffect(() => {
@@ -136,7 +138,7 @@ function ProblemAndVideo() {
 
   // Autoplay when video is fully in viewport
   useEffect(() => {
-    if (USE_SELF_HOSTED) return;
+    if (USE_SELF_HOSTED || shouldReduceMotion) return;
 
     const container = videoContainerRef.current;
     if (!container) return;
@@ -163,7 +165,7 @@ function ProblemAndVideo() {
 
     observer.observe(container);
     return () => observer.disconnect();
-  }, []);
+  }, [shouldReduceMotion]);
 
   return (
     <section ref={sectionRef} aria-label="Problem and Validation">
@@ -177,9 +179,9 @@ function ProblemAndVideo() {
       >
         <div className="container">
           <motion.div
-            initial={shouldReduceMotion ? false : "hidden"}
-            whileInView="visible"
-            viewport={defaultViewport}
+            initial={getInitialState(shouldReduceMotion)}
+            whileInView={getViewportState(shouldReduceMotion)}
+            viewport={getViewportOptions(shouldReduceMotion)}
             variants={staggerContainer}
             className="mx-auto max-w-3xl"
           >
@@ -237,9 +239,9 @@ function ProblemAndVideo() {
         <div className="container">
           <motion.div
             className="mx-auto max-w-4xl"
-            initial={shouldReduceMotion ? false : "hidden"}
-            whileInView="visible"
-            viewport={defaultViewport}
+            initial={getInitialState(shouldReduceMotion)}
+            whileInView={getViewportState(shouldReduceMotion)}
+            viewport={getViewportOptions(shouldReduceMotion)}
             variants={staggerContainer}
           >
             <motion.h2

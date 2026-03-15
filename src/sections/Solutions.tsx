@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight, ChevronDown } from "lucide-react";
+import { useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import type { AnimationItem } from "lottie-web";
 
@@ -139,6 +140,7 @@ function CaseStudyCard({ study }: { study: CaseStudy }) {
 }
 
 function Solutions() {
+  const shouldReduceMotion = useReducedMotion();
   const [selection, setSelection] = useState(0);
   const [activeTab, setActiveTab] = useState<Record<number, "service" | "casestudy">>({});
   const [activeCaseStudy, setActiveCaseStudy] = useState<Record<number, number>>({});
@@ -163,8 +165,8 @@ function Solutions() {
       const anim = mod.default.loadAnimation({
         container: lottieContainerRef.current,
         renderer: "svg",
-        loop: true,
-        autoplay: true,
+        loop: !shouldReduceMotion,
+        autoplay: !shouldReduceMotion,
         path: LOTTIE_PATHS[selection],
         rendererSettings: { preserveAspectRatio: "xMidYMid meet" },
       });
@@ -177,6 +179,10 @@ function Solutions() {
           svg.removeAttribute("height");
           svg.style.width = "100%";
           svg.style.height = "100%";
+        }
+
+        if (shouldReduceMotion) {
+          anim.goToAndStop(0, true);
         }
       });
 
@@ -192,7 +198,7 @@ function Solutions() {
         animInstanceRef.current = null;
       }
     };
-  }, [selection]);
+  }, [selection, shouldReduceMotion]);
 
   return (
     <section id="solutions" className="py-24 bg-stardust-a40" aria-label="Solutions">

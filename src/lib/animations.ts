@@ -98,3 +98,19 @@ export const defaultViewport = {
   amount: 0.2, // Trigger when 20% is visible
   margin: "0px 0px -100px 0px" // Trigger slightly before element enters viewport
 }
+
+export function getInitialState(shouldReduceMotion: boolean) {
+  return shouldReduceMotion ? false : "hidden"
+}
+
+export function getAnimateState(shouldReduceMotion: boolean) {
+  return shouldReduceMotion ? undefined : "visible"
+}
+
+export function getViewportState(shouldReduceMotion: boolean) {
+  return shouldReduceMotion ? undefined : "visible"
+}
+
+export function getViewportOptions(shouldReduceMotion: boolean) {
+  return shouldReduceMotion ? undefined : defaultViewport
+}
