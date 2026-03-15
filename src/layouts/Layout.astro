@@ -5,9 +5,11 @@ interface Props {
 }
 
 const { 
-  title = 'Aiscend', 
-  description = 'Transform your business with AI & automation solutions.' 
+  title = 'Aiscend Labs — Custom AI Systems for Established Businesses', 
+  description = "We capture your experts' institutional knowledge and build AI systems around your real workflows. Discovery, implementation, working software."
 } = Astro.props;
+
+const siteUrl = 'https://aiscend.ai'; // TODO: confirm production domain
 ---
 
 <!doctype html>
@@ -16,9 +18,41 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
-    
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteUrl}/og-image.svg`} />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:site_name" content="Aiscend Labs" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}/og-image.svg`} />
+
+    <!-- LocalBusiness JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Aiscend Labs",
+      "description": description,
+      "url": siteUrl,
+      "email": "info@aiscend.ai",
+      "image": `${siteUrl}/og-image.svg`,
+      "priceRange": "$$$$",
+      "knowsAbout": [
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Business Process Automation",
+        "Custom AI Systems"
+      ]
+    })} />
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
