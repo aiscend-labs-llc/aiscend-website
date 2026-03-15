@@ -3,8 +3,10 @@ import { scrollToSection } from "@/lib/scroll";
 
 const NAV = [
   { label: "Home", section: "hero" },
-  { label: "Impact", section: "impact" },
-  { label: "Solutions", section: "solutions" },
+  { label: "Validation", section: "cuban-video" },
+  { label: "Services", section: "solutions" },
+  { label: "Proof", section: "proof" },
+  { label: "Team", section: "team" },
   { label: "Contact", section: "contact" },
 ];
 
@@ -15,7 +17,7 @@ const SOCIAL = [
 
 function Footer() {
   return (
-    <footer id="footer" className="bg-stardust-a40 pb-0">
+    <footer id="footer" className="ambient-fade-in ambient-hairline-top bg-stardust-a40 pb-0">
       <div className="container pt-14 pb-8">
         {/* Top row: email + nav + social */}
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-start">

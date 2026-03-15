@@ -21,7 +21,7 @@ function Contact() {
   }, [])
 
   return (
-    <section id="contact" className="relative isolate overflow-hidden py-24 bg-black" aria-label="Contact">
+    <section id="contact" className="ambient-fade-out relative isolate overflow-hidden py-24 bg-black" aria-label="Contact">
       {/* Top-center dot cluster */}
       <div
         aria-hidden="true"
@@ -74,7 +74,7 @@ function Contact() {
           viewport={defaultViewport}
           variants={scaleFade}
         >
-          <div className="h-[720px] sm:h-[820px] w-full overflow-auto rounded-md">
+          <div className="ambient-shell h-[720px] sm:h-[820px] w-full overflow-auto rounded-lg p-px">
             <Cal
               namespace="30min"
               // TODO: update to confirmed Aiscend Cal.com link
