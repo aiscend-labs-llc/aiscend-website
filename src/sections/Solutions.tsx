@@ -58,7 +58,7 @@ const features: Feature[] = [
     id: "data",
     title: "Data Engineering & Machine Learning",
     description:
-      "Unlock the value of your data across its entire lifecycle. We build industry-specific ML models, data pipelines, business intelligence dashboards, and analytics infrastructure from raw data to strategic insight.",
+      "Unlock the value of your data across its entire lifecycle. We build custom ML models, data pipelines, business intelligence dashboards, and analytics infrastructure from your raw data to strategic insight.",
     caseStudies: [
       {
         label: "Biogen",
@@ -102,7 +102,7 @@ const features: Feature[] = [
     id: "enablement",
     title: "AI Enablement & Governance",
     description:
-      "Making AI stick inside organizations. Executive AI literacy programs, technical team upskilling, prompt engineering training, hands-on workshops, and MLOps governance strategy.",
+      "Making AI stick inside your organization. Executive AI literacy programs, technical team upskilling, prompt engineering training, hands-on workshops, and governance strategy designed for your team.",
   },
 ];
 
@@ -204,6 +204,9 @@ function Solutions() {
           <p className="text-muted-foreground lg:text-xl">
             End-to-end AI and data services — from strategy through
             implementation — to help your business work smarter.
+          </p>
+          <p className="mt-3 text-muted-foreground lg:text-lg">
+            Every system we build starts with your people and your process. Nothing is off the shelf.
           </p>
         </div>
 

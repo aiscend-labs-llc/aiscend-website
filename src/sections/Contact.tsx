@@ -64,7 +64,7 @@ function Contact() {
             Let's Build AI Around Humans
           </motion.h2>
           <motion.p className="mt-3 text-stardust-a40" variants={staggerItem}>
-            No pitch deck. No 47-slide proposal. We'll talk about what's actually going on in your business and figure out if we can help. If we can't, or if it's not worth your time and money, we'll tell you.
+            No pitch deck. No 47-slide proposal. We'll talk about what's actually going on in your business and figure out if we can help. If we can't, or if it's not worth your time and money, we'll tell you. If there's a fit, what we build will be designed around your business. Not a template.
           </motion.p>
         </motion.div>
         <motion.div
