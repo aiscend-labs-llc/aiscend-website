@@ -4,10 +4,38 @@ interface Props {
   description?: string;
 }
 
-const { 
-  title = 'Aiscend', 
-  description = 'Transform your business with AI & automation solutions.' 
+const DEFAULT_TITLE = 'Aiscend Labs — Custom AI Systems for Established Businesses';
+const DEFAULT_DESCRIPTION = 'We capture your experts\' institutional knowledge and build AI systems around your real workflows. Discovery, implementation, working software.';
+const OG_IMAGE_PATH = '/og-image.png';
+const FAVICON_PATH = '/favicon.svg';
+
+const {
+  title = DEFAULT_TITLE,
+  description = DEFAULT_DESCRIPTION
 } = Astro.props;
+
+const isHomePage = Astro.url.pathname === '/';
+const structuredData: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Aiscend Labs',
+  description: DEFAULT_DESCRIPTION,
+  image: OG_IMAGE_PATH,
+  email: 'info@aiscend.ai',
+  areaServed: 'US',
+  knowsAbout: [
+    'Custom AI systems',
+    'Institutional knowledge capture',
+    'Workflow mapping',
+    'Operational AI implementation'
+  ]
+};
+
+if (Astro.site) {
+  structuredData.url = Astro.site.toString();
+}
+
+const localBusinessJsonLd = JSON.stringify(structuredData);
 ---
 
 <!doctype html>
@@ -16,8 +44,14 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={OG_IMAGE_PATH} />
+    <link rel="icon" type="image/svg+xml" href={FAVICON_PATH} />
     <title>{title}</title>
+
+    {isHomePage && <script type="application/ld+json" set:html={localBusinessJsonLd} />}
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
