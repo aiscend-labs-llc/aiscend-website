@@ -15,7 +15,15 @@ const SOCIAL = [
 
 function Footer() {
   return (
-    <footer id="footer" className="bg-stardust-a40 pb-0">
+    <footer id="footer" className="relative bg-stardust-a40 pb-0">
+      {/* Ambient transition bridge from dark Contact */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none h-16 w-full"
+        style={{
+          background: 'linear-gradient(to bottom, #000000, #0a0a0a 30%, var(--color-stardust-a40))',
+        }}
+      />
       <div className="container pt-14 pb-8">
         {/* Top row: email + nav + social */}
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-start">

@@ -21,7 +21,7 @@ function Contact() {
   }, [])
 
   return (
-    <section id="contact" className="relative isolate overflow-hidden py-24 bg-black" aria-label="Contact">
+    <section id="contact" className="relative isolate overflow-hidden py-24 bg-black ambient-blur-warm" aria-label="Contact">
       {/* Top-center dot cluster */}
       <div
         aria-hidden="true"
