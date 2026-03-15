@@ -74,7 +74,7 @@ function Contact() {
           viewport={defaultViewport}
           variants={scaleFade}
         >
-          <div className="h-[720px] sm:h-[820px] w-full overflow-auto rounded-md">
+          <div className="relative h-[720px] sm:h-[820px] w-full overflow-auto rounded-lg border border-white/[0.06] shadow-[0_2px_24px_rgba(250,250,248,0.04)] bg-white/[0.02] backdrop-blur-[2px]">
             <Cal
               namespace="30min"
               // TODO: update to confirmed Aiscend Cal.com link
