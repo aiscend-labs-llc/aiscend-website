@@ -3,14 +3,15 @@ import { scrollToSection } from "@/lib/scroll";
 
 const NAV = [
   { label: "Home", section: "hero" },
-  { label: "Impact", section: "impact" },
-  { label: "Solutions", section: "solutions" },
+  { label: "Services", section: "solutions" },
+  { label: "Our Work", section: "proof" },
+  { label: "Team", section: "team" },
   { label: "Contact", section: "contact" },
 ];
 
 const SOCIAL = [
-  { label: "Linkedin", href: "https://linkedin.com" },
-  { label: "Twitter", href: "https://x.com" },
+  { label: "LinkedIn", href: "https://linkedin.com/company/aiscend" }, // TODO: confirm real Aiscend LinkedIn URL
+  { label: "X", href: "https://x.com/aiscend" }, // TODO: confirm real Aiscend X/Twitter URL
 ];
 
 function Footer() {
