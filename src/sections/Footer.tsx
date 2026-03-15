@@ -3,16 +3,18 @@ import { scrollToSection } from "@/lib/scroll";
 
 const NAV = [
   { label: "Home", section: "hero" },
-  { label: "Validation", section: "cuban-video" },
+  { label: "Video", section: "cuban-video" },
   { label: "Services", section: "solutions" },
-  { label: "Proof", section: "proof" },
+  { label: "Our Work", section: "proof" },
   { label: "Team", section: "team" },
   { label: "Contact", section: "contact" },
 ];
 
 const SOCIAL = [
-  { label: "Linkedin", href: "https://linkedin.com" },
-  { label: "Twitter", href: "https://x.com" },
+  // TODO: Replace with Aiscend's LinkedIn URL once confirmed.
+  { label: "LinkedIn", href: "https://linkedin.com" },
+  // TODO: Replace with Aiscend's X URL once confirmed.
+  { label: "X", href: "https://x.com" },
 ];
 
 function Footer() {
