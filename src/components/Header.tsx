@@ -24,7 +24,7 @@ function Header() {
 
   return (
     <motion.header
-      className="sticky top-0 z-50 border-b bg-stardust-a40/80 backdrop-blur transition-all duration-300"
+      className={`sticky top-0 z-50 transition-all duration-300 topbar-glass ${scrolled ? "topbar-glass--compressed" : ""}`}
       initial="hidden"
       animate="visible"
       variants={staggerContainer}
