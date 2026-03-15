@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ThesisContent from "../sections/ThesisContent";
+---
+
+<Layout
+  title="Aiscend Thesis"
+  description="Aiscend's philosophy on tacit knowledge capture, AI discovery, and building systems around real workflows."
+>
+  <header class="sticky top-0 z-50 topbar-glass">
+    <div class="container flex h-[72px] items-center justify-between gap-4 py-4">
+      <div class="flex items-center gap-4">
+        <a href="/" class="font-brand text-2xl font-semibold text-stardust-a0">
+          aiscend
+        </a>
+        <a
+          href="/"
+          class="hidden text-sm font-medium text-stardust-a10 transition-colors hover:text-stardust-a0 sm:inline-flex"
+        >
+          Back to home
+        </a>
+      </div>
+
+      <a
+        href="/#contact"
+        class="inline-flex items-center justify-center rounded-md bg-stardust-a0 px-4 py-2 text-sm font-medium text-stardust-a40 transition-colors hover:bg-stardust-a0/90"
+      >
+        Talk to Us
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <ThesisContent client:visible />
+  </main>
+</Layout>

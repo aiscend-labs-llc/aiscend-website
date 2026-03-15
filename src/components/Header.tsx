@@ -8,7 +8,7 @@ const SCROLL_THRESHOLD = 48
 
 const navItems = [
   { label: "Services", action: () => scrollToSection("solutions") },
-  { label: "Thesis", action: () => (window.location.href = "/thesis") },
+  { label: "Thesis", href: "/thesis" },
   { label: "Team", action: () => scrollToSection("team") },
 ]
 
@@ -46,13 +46,23 @@ function Header() {
           aria-label="Main navigation"
         >
           {navItems.map((item) => (
-            <button
-              key={item.label}
-              onClick={item.action}
-              className="cursor-pointer px-3 py-1.5 text-sm font-medium text-stardust-a10 hover:text-stardust-a0 transition-colors rounded-md hover:bg-stardust-a30/40"
-            >
-              {item.label}
-            </button>
+            item.href ? (
+              <a
+                key={item.label}
+                href={item.href}
+                className="px-3 py-1.5 text-sm font-medium text-stardust-a10 hover:text-stardust-a0 transition-colors rounded-md hover:bg-stardust-a30/40"
+              >
+                {item.label}
+              </a>
+            ) : (
+              <button
+                key={item.label}
+                onClick={item.action}
+                className="cursor-pointer px-3 py-1.5 text-sm font-medium text-stardust-a10 hover:text-stardust-a0 transition-colors rounded-md hover:bg-stardust-a30/40"
+              >
+                {item.label}
+              </button>
+            )
           ))}
         </motion.nav>
 
