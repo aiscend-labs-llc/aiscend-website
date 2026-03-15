@@ -203,7 +203,8 @@ function Solutions() {
           </h2>
           <p className="text-muted-foreground lg:text-xl">
             End-to-end AI and data services — from strategy through
-            implementation — to help your business work smarter.
+            implementation — built around how you actually work. Every system
+            starts with your people and your process. Nothing is off the shelf.
           </p>
         </div>
 
