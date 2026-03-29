@@ -12,20 +12,17 @@ const team = [
   {
     name: "Spencer Karns",
     role: "Co-founder",
-    photo: "/team/spencer.jpg",
-    bio: "Babson alum. Studied deep learning in Spain, co-founded the AI Generator Lab at Babson, and served on the Genius Bar in the Goldman Sachs 10,000 Small Businesses Innovators Bootcamp. Runs discovery, client relationships, and systems architecture for companies from $5M to $400M+ in revenue across engineering, medical, and real estate.",
+    bio: "Babson alum. Studied deep learning in Spain, co-founded the AI Generator Lab at Babson, and served on the Genius Bar in the G1000 Innovators Bootcamp. Runs discovery, client relationships, and systems architecture for companies from $5M to $400M+ in revenue across engineering, medical, and real estate.",
   },
   {
     name: "Connor Raney",
     role: "Co-founder & Technical Lead",
-    photo: "/team/connor.jpg",
-    bio: "Babson alum and OpenAI lab member. Co-founded the AI Generator Lab at Babson and served on the Genius Bar in the Goldman Sachs 10,000 Small Businesses Innovators Bootcamp. Machine learning, system design, and the infrastructure that makes autonomous agent workflows run. Builds the backends that turn discovery insights into working software, with domain experience in cybersecurity.",
+    bio: "Babson alum and OpenAI lab member. Co-founded the AI Generator Lab at Babson and served on the Genius Bar in the G1000 Innovators Bootcamp. Machine learning, system design, and the infrastructure that makes autonomous agent workflows run. Builds the backends that turn discovery insights into working software, with domain experience in cybersecurity.",
   },
   {
     name: "Arman Ozsu",
     role: "ML & Development",
-    photo: "/team/arman.jpg",
-    bio: "Babson alum. Served on the Genius Bar in the Goldman Sachs 10,000 Small Businesses Innovators Bootcamp. Data science, predictive analytics, and automation. Brings the quantitative rigor that turns messy enterprise data into structured, trainable systems.",
+    bio: "Babson alum. Served on the Genius Bar in the G1000 Innovators Bootcamp. Data science, predictive analytics, and automation. Brings the quantitative rigor that turns messy enterprise data into structured, trainable systems.",
   },
 ];
 
@@ -55,16 +52,14 @@ function Team() {
           >
             {team.map((member) => (
               <article key={member.name} className="space-y-4">
-                {member.photo && (
-                  <div className="aspect-[4/5] w-full overflow-hidden rounded-xl bg-stardust-a30/30">
-                    <img
-                      src={member.photo}
-                      alt={member.name}
-                      className="h-full w-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                )}
+                <div className="aspect-[4/5] w-full overflow-hidden rounded-xl bg-stardust-a30/30 flex items-center justify-center">
+                  <span className="text-4xl font-semibold text-stardust-a0/70">
+                    {member.name
+                      .split(" ")
+                      .map((part) => part[0])
+                      .join("")}
+                  </span>
+                </div>
                 <div className="space-y-2">
                   <h3 className="text-xl font-semibold tracking-tight">
                     {member.name}

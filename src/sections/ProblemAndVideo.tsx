@@ -90,6 +90,8 @@ function ProblemAndVideo() {
     }
 
     playerRef.current = new window.YT.Player(playerId, {
+      width: "100%",
+      height: "100%",
       videoId: YT_VIDEO_ID,
       playerVars: {
         start: YT_START,
@@ -97,6 +99,9 @@ function ProblemAndVideo() {
         rel: 0,
         modestbranding: 1,
         playsinline: 1,
+        controls: 1,
+        iv_load_policy: 3,
+        showinfo: 0,
       },
       events: {
         onStateChange: (event: YT.OnStateChangeEvent) => {
@@ -224,10 +229,10 @@ function ProblemAndVideo() {
 
       {/* Light-to-dark transition gradient */}
       <div
-        className="h-32"
+        className="h-48 -mb-px"
         style={{
           background:
-            "linear-gradient(to bottom, var(--color-stardust-a40), var(--color-stardust-a0))",
+            "linear-gradient(to bottom, var(--color-stardust-a40) 0%, var(--color-stardust-a40) 10%, rgba(26,26,26,0.08) 40%, rgba(26,26,26,0.4) 70%, var(--color-stardust-a0) 100%)",
         }}
       />
 
@@ -277,7 +282,7 @@ function ProblemAndVideo() {
               ) : (
                 <div
                   ref={videoContainerRef}
-                  className="aspect-video w-full overflow-hidden rounded-xl border border-white/10"
+                  className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 [&>iframe]:h-full [&>iframe]:w-full [&>div]:h-full [&>div]:w-full"
                 />
               )}
             </motion.div>

@@ -7,7 +7,6 @@ const navItems = [
 ]
 
 function Header() {
-
   return (
     <header className="sticky top-0 z-50 topbar-glass">
       <div className="container flex h-[72px] items-center justify-between gap-4">

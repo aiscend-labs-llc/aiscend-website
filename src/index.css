@@ -242,6 +242,53 @@ section {
   background: rgba(250, 250, 248, 0.02);
 }
 
+/* Hero ambient motion (CSS-only for low hydration cost) */
+.hero-ambient::before {
+  content: '';
+  position: absolute;
+  inset: -35% -20%;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(26, 58, 92, 0.16) 0%, transparent 42%),
+    radial-gradient(circle at 70% 62%, rgba(26, 26, 26, 0.12) 0%, transparent 45%);
+  animation: heroAmbientShift 7s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.hero-dotfield {
+  position: absolute;
+  inset: -18% -12%;
+  background-image: radial-gradient(rgba(26, 26, 26, 0.35) 1px, transparent 1px);
+  background-size: 18px 18px;
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 68%);
+  -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 68%);
+  opacity: 0.55;
+  animation: heroDotDrift 9s linear infinite;
+  pointer-events: none;
+}
+
+.hero-line-1 {
+  animation: heroLinePulse 3.6s ease-in-out infinite;
+}
+
+.hero-line-2 {
+  animation: heroLinePulse 3.6s ease-in-out infinite 0.9s;
+}
+
+@keyframes heroAmbientShift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(-4%, 3%, 0) scale(1.06); }
+}
+
+@keyframes heroLinePulse {
+  0%, 100% { opacity: 0.86; }
+  50% { opacity: 1; }
+}
+
+@keyframes heroDotDrift {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-18px, -12px, 0); }
+}
+
 /* Utility: force light headings inside dark sections */
 .section--dark h1,
 .section--dark h2,
@@ -297,5 +344,12 @@ section {
   .ambient-fade-out::after,
   .ambient-fade-in::before {
     display: none;
+  }
+
+  .hero-ambient::before,
+  .hero-dotfield,
+  .hero-line-1,
+  .hero-line-2 {
+    animation: none;
   }
 }

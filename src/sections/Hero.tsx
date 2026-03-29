@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import { DotPattern } from "@/components/magicui/dot-pattern";
+import { Typewriter } from "@/components/ui/typewriter-text";
 
 function Hero() {
   return (
@@ -30,14 +32,21 @@ function Hero() {
           </div>
 
           <div className="lg:col-span-5 mt-10 lg:mt-0" aria-hidden="true">
-            <div className="flex h-[420px] items-center justify-center rounded-[2rem] border border-stardust-a30/80 bg-white/60 p-10 shadow-sm">
-              <div className="space-y-4 text-center">
-                <p className="text-2xl font-semibold text-stardust-a0 sm:text-3xl lg:text-4xl">
-                  AI that solves real problems.
-                </p>
-                <p className="text-base text-stardust-a10 sm:text-lg">
-                  Turn your human decisions into real AI systems.
-                </p>
+            <div className="relative w-full h-[420px] overflow-visible">
+              <div className="pointer-events-none absolute left-1/2 top-1/2 z-0 w-[720px] h-[720px] -translate-x-1/2 -translate-y-1/2 [mask-image:radial-gradient(360px_circle_at_center,white,transparent)] [-webkit-mask-image:radial-gradient(360px_circle_at_center,white,transparent)] [mask-repeat:no-repeat] [-webkit-mask-repeat:no-repeat] [mask-position:center] [-webkit-mask-position:center]">
+                <DotPattern glow className="text-neutral-600/80" />
+              </div>
+              <div className="absolute inset-0 z-10 flex items-start justify-center pt-[115px] sm:pt-[147px]">
+                <Typewriter
+                  text={[
+                    "AI that solves\nreal problems.",
+                    "Turn your human decisions\ninto real AI systems.",
+                  ]}
+                  speed={60}
+                  deleteSpeed={10}
+                  loop
+                  className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-stardust-a0 whitespace-pre-line text-center"
+                />
               </div>
             </div>
           </div>
